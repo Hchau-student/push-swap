@@ -70,19 +70,19 @@ void	print(t_swap_number *num)
 {
 	if (num != NULL)
 		ft_putendl(num->to_str);
-	printf("and num data: ");
-	if (num->is_bignum == TRUE)
-	{
-		int i = 0;
-		while (i < num->bignum_len)
-		{
-			printf("%ld ", num->bignum[i]);
-			i++;
-		}
-		printf("\nand numlen: %d", num->bignum_len);
-	} else
-		printf("%ld ", num->num);
-	printf("\n");
+//	printf("and num data: ");
+//	if (num->is_bignum == TRUE)
+//	{
+//		int i = 0;
+//		while (i < num->bignum_len)
+//		{
+//			printf("%ld ", num->bignum[i]);
+//			i++;
+//		}
+//		printf("\nand numlen: %d", num->bignum_len);
+//	} else
+//		printf("%ld ", num->num);
+//	printf("\n");
 }
 
 void	create_num(t_swap_number **num)

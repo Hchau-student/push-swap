@@ -74,7 +74,7 @@ void	fill_stack(t_stack **a, char **av, int ac)
 //	core->push_a(core);
 //	core->push_a(core);
 //	core->push_a(core);
-	check_nums(&core->a);
+//	check_nums(&core->a);
 
 //	nums_count = core->b->list_size;
 //	while (core->b->nums && nums_count)
