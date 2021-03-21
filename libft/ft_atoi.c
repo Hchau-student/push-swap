@@ -20,7 +20,7 @@ int		ft_atoi(char const *nb)
 
 	a = 0;
 	i = 1;
-	s = 922337203685477580;
+	s = 214748364;
 	while (*nb && ((*nb >= 9 && *nb <= 13) || *nb == 32))
 		nb += 1;
 	if (*nb == '+' || *nb == '-')
@@ -29,10 +29,10 @@ int		ft_atoi(char const *nb)
 	{
 		if (*nb >= '0' && *nb <= '9')
 		{
-			if ((a > s || (a == s && *nb >= '8')) && i == -1)
-				return (0);
-			if ((a > s || (a == s && *nb >= '7')) && i == 1)
+			if ((a > s || (a == s && *nb >= '8')) && i == 1)
 				return (-1);
+			if ((a > s || (a == s && *nb >= '9')) && i == -1)
+				return (0);
 			a = (*nb++ - '0') + a * 10;
 		}
 		else

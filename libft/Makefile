@@ -72,6 +72,7 @@ ft_twlstmap.c \
 ft_twlstclr.c \
 ft_twlstdel_backw.c \
 ft_strcpy_return.c \
+ft_is_whitespace.c
 
 OBJ = ft_memset.o \
 ft_bzero.o \
@@ -147,6 +148,7 @@ ft_twlstmap.o \
 ft_twlstclr.o \
 ft_twlstdel_backw.o \
 ft_strcpy_return.o \
+ft_is_whitespace.o
 
 FLAGS = -Wall -Werror -Wextra
 

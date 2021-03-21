@@ -107,5 +107,6 @@ void				ft_twlstdel_backw(t_twlist **alltwlist,
 												void (*del)(void *, size_t));
 char				*ft_strcpy_return(char *dest, char const *src);
 void				ft_twlstend(t_twlist **alltwlist, t_twlist *new);
+int					ft_is_whitespace(int c);
 
 #endif

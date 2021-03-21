@@ -1,26 +1,62 @@
-#
-# # # config:
-#
-PUSH_SWAP =		push_swap
-CHECKER =		checker
-NAME =			$(PUSH_SWAP) $(CHECKER)
-FLAGS = 		-Wall -Wextra
-#FLAGS +=		Werror
+PINK = \033[38;2;200;150;200m
+BLUE = \033[38;2;200;200;250m
+RED = \033[38;2;200;30;70m
+YELLOW = \033[38;2;200;200;50m
+GREEN = \033[38;2;0;200;0m
 
-#
-# # # src:
-#
-LIB_DIR = 				./libft/
-SWAP_SRC_DIR =			./src/swap/**/
-SWAP_INC_DIR =			./includes/swap/
-CHECKER_SRC_DIR =		./src/checker/
-CHECKER_INC_DIR =		./includes/checker
+NAME = $(SWAP)
+SWAP = push_swap
+CHECKER = checker
+OBJ_DIR = ./obj
+SRC_SWAP_DIR = ./src/swap
+INCL_DIR = ./includes
 
-#
-# # # obj:
-#
-all:
-	gcc src/**/*.c src/*.c includes/*.h ./libft/libft.a
+C_FILES = main.c simple_commands.c init_deque.c \
+            parse_nums.c validate_cl.c
+
+OBJ_FILES = $(C_FILES:.c=.o)
+RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
+LIBFT_FLAGS = -L libft/ -lft
+NOT_EXIST	= tfbil
+
+CFLAGS = -Wall -Wextra #-Werror
+
+###################
+####### all #######
+###################
+
+all: $(OBJ_DIR) $(NAME) $(NOT_EXIST)
+
+$(NOT_EXIST):
+	@make -C ./libft
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
+
+$(NAME): $(RAW_OBJ_FILES)
+	@make -sC ./libft
+	@gcc $(RAW_OBJ_FILES) $(LIBFT_FLAGS) -o $(NAME)
+
+#### К о м п и л я ц и я ####
+
+$(OBJ_DIR)/%.o: $(SRC_SWAP_DIR)/%.c $(INCL_DIR)/*.h
+	@gcc $(CFLAGS) -I $(INCL_DIR) -I ./libft -c $< -o $@
 
 clean:
-	rm -rf a.out ./includes/*.h.gch
+	@rm -rf $(RAW_OBJ_FILES)
+	@rm -rf ./libft/*.o
+
+fclean: clean
+	@rm -rf $(NAME)
+	@rm -rf $(OBJ_DIR)
+	@rm -rf ./libft/libft.a
+
+re: fclean all
+
+########################
+####### tests ##########
+########################
+
+test:
+	rm -rf tests
+	make -sC ./src/tests
