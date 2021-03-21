@@ -59,4 +59,4 @@ re: fclean all
 
 test:
 	rm -rf tests
-	make -sC ./src/tests
+	make -sC ./src/tests_src
