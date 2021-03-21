@@ -19,13 +19,8 @@ int     main(int ac, char **av)
 
 	if (validate_cl(ac, av))
 		error_manager("invalid line");
-
-//	construct_main_list;
-//	construct_a_stack;
-//	construct_b_stack;
-
-//	parse_cl(ac, av);//должна читать числа из файла или коммандной строки
-	parse_nums(&a, ac, av);//в b->elem лежит null, а должна ссылаться на a->elem, но иметь size == 0
+	if (parse_nums(&a, ac, av))
+		error_manager("nums are invalid");//в b->elem лежит null, а должна ссылаться на a->elem, но иметь size == 0
 	ft_putendl("aaaaa1");
 	validate_cl(ac, av);
 
