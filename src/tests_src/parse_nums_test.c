@@ -52,6 +52,7 @@ static int		test_content(t_node	*a, char **expected, unsigned int a_size)
 	ft_putnbr(s);
 	ft_putstr("\033[38;2;200;20;250m");
 	ft_putstr(" ");
+	a = a->prev;
 	for (int i = 0; i < s; i++)
 	{
 		ft_putnbr(a->val);
@@ -60,7 +61,7 @@ static int		test_content(t_node	*a, char **expected, unsigned int a_size)
 			continue ;
 		if (a->val != ft_atoi(expected[i + 1]))
 			return (KO);
-		a = a->next;
+		a = a->prev;
 	}
 	return (OK);
 }
