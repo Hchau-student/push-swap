@@ -12,20 +12,28 @@ int				arg_is_num(char *arg)
 	return (1);
 }
 
-int				check_match(int *nums_table, t_node *nodes, t_node *end)
+int				check_match(int *nums_table, t_node *nodes, int size)
 {
-	int curr_index;
+	int		curr_index;
+	int		val;
 
-	if (end == NULL || nodes == NULL)
+	if (size == 0 || nodes == NULL)
 		return (0);
-	curr_index = end->val < 0 ? end->val * -1 : end->val;
+	val = nodes->val;
+	curr_index = nodes->val < 0 ? nodes->val * -1 : nodes->val;
+	nodes = nodes->next;
 	if (((nums_table[curr_index % TABLE_SIZE]) & (1 << (curr_index % sizeof(int)))) != 0)
 	{
-		while (nodes != end)
+		while (size)
 		{
-			if (nodes->val == end->val)
+			ft_putnbr(nodes->val);
+			ft_putstr(" ");
+			if (nodes->val == val) {
+				ft_putendl("here");
 				return (1);
+			}
 			nodes = nodes->next;
+			size--;
 		}
 	}
 	nums_table[curr_index % TABLE_SIZE] |= (1 << (curr_index % sizeof(int)));
@@ -37,7 +45,6 @@ int 			fill_curr_node(t_node **node, int content)
 	if (*node == NULL)
 	{
 			*node = ft_memalloc(sizeof(t_node));
-//			(*node)->val = content;
 			(*node)->next = (*node);
 			(*node)->prev = (*node);
 	}
@@ -58,7 +65,9 @@ int				fill_nodes(t_node **a, char **strings, unsigned int *actual_size, int *nu
 	int					i;
 
 	i = 0;
-	if (tmp == NULL)
+	if (*actual_size == 0)
+		tmp = NULL;
+	else if (tmp == NULL)
 		tmp = *a;
 	while (strings[i] != NULL)
 	{
@@ -67,9 +76,17 @@ int				fill_nodes(t_node **a, char **strings, unsigned int *actual_size, int *nu
 			fill_curr_node(a, ft_atoi(strings[i]));
 			if (tmp == NULL)
 				tmp = *a;
-//			if (check_match((int *)nums_table, *a, tmp))
-//				return (1);
 			*actual_size = *actual_size + 1;
+			if (check_match((int *)nums_table, *a, *actual_size))
+			{
+				{//for my tests, to see what's in here
+					if (*actual_size == 0)
+						return (1);
+					(*a)->prev = tmp;
+					tmp->next = (*a);
+				}
+				return (1);
+			}
 		}
 		i++;
 	}
@@ -77,12 +94,6 @@ int				fill_nodes(t_node **a, char **strings, unsigned int *actual_size, int *nu
 		return (0);
 	(*a)->prev = tmp;
 	tmp->next = (*a);
-//	i = 0;
-//	for (t_node *t = *a; i < *actual_size; i++) {
-//		ft_putnbr(t->val);
-//		ft_putstr(" ");
-//		t = t->next;
-//	}
 	return (0);
 }
 
@@ -100,7 +111,7 @@ int 		parse_nums(t_stack *a, int ac, char **av)
 	while (i < ac)
 	{
 		if (fill_nodes(&a->begin, ft_strsplit(av[i], ' '), &a->size, nums_table))
-			return (1);//to the end of the list
+			return (1);
 		i++;
 	}
 	if (a->size == 0)
