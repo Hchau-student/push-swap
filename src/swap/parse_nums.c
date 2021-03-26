@@ -3,42 +3,6 @@
 //
 
 #include "header.h"
-#define TABLE_SIZE	3571
-
-int				arg_is_num(char *arg)
-{
-	if (arg[0] == '-' && arg[1] == 'v')
-		return (0);
-	return (1);
-}
-
-int				check_match(int *nums_table, t_node *nodes, int size)
-{
-	int		curr_index;
-	int		val;
-
-	if (size == 0 || nodes == NULL)
-		return (0);
-	val = nodes->val;
-	curr_index = nodes->val < 0 ? nodes->val * -1 : nodes->val;
-	nodes = nodes->next;
-	if (((nums_table[curr_index % TABLE_SIZE]) & (1 << (curr_index % sizeof(int)))) != 0)
-	{
-		while (size)
-		{
-			ft_putnbr(nodes->val);
-			ft_putstr(" ");
-			if (nodes->val == val) {
-				ft_putendl("here");
-				return (1);
-			}
-			nodes = nodes->next;
-			size--;
-		}
-	}
-	nums_table[curr_index % TABLE_SIZE] |= (1 << (curr_index % sizeof(int)));
-	return (0);
-}
 
 int 			fill_curr_node(t_node **node, int content)
 {
@@ -59,48 +23,57 @@ int 			fill_curr_node(t_node **node, int content)
 	return (0);
 }
 
-int				fill_nodes(t_node **a, char **strings, unsigned int *actual_size, int *nums_table)
+int 			end_list(t_stack *stack, t_node *end, int res)
+{
+	if (stack->size == 0)
+		return (res);
+	stack->begin->prev = end;
+	end->next = stack->begin;
+	return (res);
+}
+
+int				get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
+{
+	fill_curr_node(&a->begin, ft_atoi(arg));
+	if (*tmp == NULL)
+		*tmp = a->begin;
+	a->size++;
+	if (check_match((int *)nums_table, a->begin, a->size))
+		return (end_list(a, *tmp, 1));
+	return (0);
+}
+
+int				fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 {
 	static t_node		*tmp = NULL;
 	int					i;
 
 	i = 0;
-	if (*actual_size == 0)
+	if (a->size == 0)
 		tmp = NULL;
 	else if (tmp == NULL)
-		tmp = *a;
+		tmp = a->begin;
 	while (strings[i] != NULL)
 	{
 		if (arg_is_num(strings[i]))
 		{
-			fill_curr_node(a, ft_atoi(strings[i]));
-			if (tmp == NULL)
-				tmp = *a;
-			*actual_size = *actual_size + 1;
-			if (check_match((int *)nums_table, *a, *actual_size))
-			{
-				{//for my tests, to see what's in here
-					if (*actual_size == 0)
-						return (1);
-					(*a)->prev = tmp;
-					tmp->next = (*a);
-				}
-				return (1);
-			}
+			if (get_num(a, strings[i], nums_table, &tmp))
+				return (end_list(a, tmp, 1));
 		}
+		else if (arg_is_flag(strings[i]))
+			program->visualize = 1;
+		else
+			return (end_list(a, tmp, 1));
 		i++;
 	}
-	if (*actual_size == 0)
-		return (0);
-	(*a)->prev = tmp;
-	tmp->next = (*a);
-	return (0);
+	return (end_list(a, tmp, 0));
 }
 
-int 		parse_nums(t_stack *a, int ac, char **av)
+int 		parse_nums(t_stack *a, t_program *program, int ac, char **av)
 {
 	int			i;
 	int			nums_table[TABLE_SIZE];
+	char		**args;
 
 	i = 1;
 	ft_bzero(nums_table, sizeof(int) * TABLE_SIZE);
@@ -110,8 +83,10 @@ int 		parse_nums(t_stack *a, int ac, char **av)
 	a->size = 0;
 	while (i < ac)
 	{
-		if (fill_nodes(&a->begin, ft_strsplit(av[i], ' '), &a->size, nums_table))
+		args = ft_strsplit(av[i], ' ');
+		if (fill_nodes(a, program, args, nums_table))
 			return (1);
+		ft_freematr(&args);
 		i++;
 	}
 	if (a->size == 0)

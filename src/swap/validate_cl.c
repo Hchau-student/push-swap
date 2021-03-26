@@ -4,7 +4,7 @@
 
 #include "header.h"
 
-int			check_num(char *s)
+static int			check_num(char *s)
 {
 	char		*check;
 
@@ -28,7 +28,7 @@ int			check_num(char *s)
 	return (0);
 }
 
-int			check_flag(char *flag)
+static int			check_flag(char *flag)
 {
 	if (*flag != '-')
 		return (1);

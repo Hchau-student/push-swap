@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define TABLE_SIZE	3571
 typedef int				t_val;
 
 typedef struct	s_node
@@ -25,22 +26,29 @@ typedef struct s_stack
 	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
 }				t_stack;
 
-/*
-**		init_stack
-*/
-
-void		init_stack(t_stack *init);
+typedef struct s_program
+{
+	int			visualize;
+}				t_program;
 
 /*
 **		parse_nums
 */
 
-int		parse_nums(t_stack *a, int ac, char **av);
+int		parse_nums(t_stack *a, t_program *program, int ac, char **av);
 
 /*
 **		validate_cl
 */
 
 int			validate_cl(int ac, char **av);
+
+/*
+**			validate_arg
+*/
+
+int				arg_is_num(char *s);
+int				arg_is_flag(char *flag);
+int				check_match(int *nums_table, t_node *nodes, int size);
 
 #endif

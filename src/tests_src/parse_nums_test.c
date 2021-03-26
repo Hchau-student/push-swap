@@ -26,7 +26,7 @@
 					}
 
 #define AC1 11
-#define AV1 (char* [AC1]) {"a.out", "-v", "-v", "-v", "-v", "-v", "-v", "-v", "-v", "-v", "1"}
+#define AV1 (char* [AC1]) {"a.out", "", "-v", "-v", "-v", "-v", "-v", "-v", "-v", "-v", "1"}
 
 #define AC2 4
 #define AV2 (char* [AC2]) {"a.out", "-10", "2147483647", "0"}
@@ -43,6 +43,12 @@
 
 #define N_AC2 10
 #define N_AV2 (char* [N_AC2])  {"a.out", "-v", "341242", "3413432", "3413432", "5", "41165", "2861", "445", "-1"}
+
+static void init_stack(t_stack *init)
+{
+	init->begin = NULL;
+	init->size = 0;
+}
 
 static int		test_content(t_node	*a, char **expected, unsigned int a_size)
 {
@@ -71,19 +77,21 @@ static int		test_content(t_node	*a, char **expected, unsigned int a_size)
 static int 		block_1(int num)
 {
 	t_stack		a;
+	t_program program;
 
+	init_stack(&a);
 	if (num == 0) {
-		if (parse_nums(&a, AC0, AV0))
+		if (parse_nums(&a, &program, AC0, AV0))
 			return (KO);
 		return (test_content(a.begin, AV0, a.size));
 	}
 	if (num == 1) {
-		if (parse_nums(&a, AC1, AV1))
-			return (OK);
+		if (parse_nums(&a, &program, AC1, AV1))
+			return (KO);
 		return (test_content(a.begin, AV1, a.size));
 	}
 	if (num == 2) {
-		if (parse_nums(&a, AC2, AV2))
+		if (parse_nums(&a, &program, AC2, AV2))
 			return (KO);
 		return (test_content(a.begin, AV2, a.size));
 	}
@@ -94,24 +102,25 @@ static int 		block_2(int num)
 {
 	t_stack		a;
 	int			res = 0;
+	t_program program;
 
-	a.size = 0;
+	init_stack(&a);
 	if (num == 0)
 	{
-		res = parse_nums(&a, N_AC0, AV0);
+		res = parse_nums(&a, &program, N_AC0, AV0);
 		test_content(a.begin, N_AV0, a.size);
 		return res == 0 ? OK : KO;
 	}
 	if (num == 1)
 	{
-		res = parse_nums(&a, N_AC1, N_AV1);
+		res = parse_nums(&a, &program, N_AC1, N_AV1);
 		test_content(a.begin, N_AV1, a.size);
 		ft_putstr(res == 0 ? "KO" : "OK");
 		return res == 0 ? OK : KO;
 	}
 	if (num == 2)
 	{
-		res = parse_nums(&a, N_AC2, N_AV2);
+		res = parse_nums(&a, &program, N_AC2, N_AV2);
 		test_content(a.begin, N_AV2, a.size);
 		return res == 0 ? OK : KO;
 	}

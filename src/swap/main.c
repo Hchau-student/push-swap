@@ -11,18 +11,25 @@ void	error_manager(char *msg)
 	exit(0);
 }
 
+static void init_stack(t_stack *init)
+{
+	init->begin = NULL;
+	init->size = 0;
+}
+
 int     main(int ac, char **av)
 {
 	t_stack		a;
 	t_stack		b;
-	t_node		*main_stack;
+	t_program	program;
 
-	if (validate_cl(ac, av))
-		error_manager("invalid line");
-	if (parse_nums(&a, ac, av))
+//	if (validate_cl(ac, av))
+//		error_manager("invalid line");
+	init_stack(&a);
+
+	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");//в b->elem лежит null, а должна ссылаться на a->elem, но иметь size == 0
 	ft_putendl("aaaaa1");
-	validate_cl(ac, av);
 
 	return (0);
 }

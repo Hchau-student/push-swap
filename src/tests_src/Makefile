@@ -6,7 +6,8 @@ INCL_DIR = ../../includes
 LIBFT_FLAGS = -L ../../libft -lft
 
 C_FILES = simple_commands.c init_deque.c \
-                      parse_nums.c validate_cl.c
+                      parse_nums.c validate_cl.c \
+                      validate_arg.c
 
 C_TESTS_FILES = main.c validate_cl.c parse_nums_test.c
 

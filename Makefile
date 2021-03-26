@@ -12,7 +12,7 @@ SRC_SWAP_DIR = ./src/swap
 INCL_DIR = ./includes
 
 C_FILES = main.c simple_commands.c init_deque.c \
-            parse_nums.c validate_cl.c
+            parse_nums.c validate_arg.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
