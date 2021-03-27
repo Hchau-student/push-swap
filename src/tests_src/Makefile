@@ -5,7 +5,7 @@ SRC_TESTS_DIR = ./
 INCL_DIR = ../../includes
 LIBFT_FLAGS = -L ../../libft -lft
 
-C_FILES = commands_1.c init_deque.c \
+C_FILES = commands_1.c \
                       parse_nums.c validate_cl.c \
                       validate_arg.c commands_2.c \
                       commands_3.c commands_4.c
