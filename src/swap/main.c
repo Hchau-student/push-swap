@@ -23,9 +23,8 @@ int     main(int ac, char **av)
 	t_stack		b;
 	t_program	program;
 
-//	if (validate_cl(ac, av))
-//		error_manager("invalid line");
 	init_stack(&a);
+	init_stack(&b);
 
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");//в b->elem лежит null, а должна ссылаться на a->elem, но иметь size == 0

@@ -4,14 +4,14 @@
 
 #include "tests.h"
 
-int main(int ac, char **av)
+int main()
 {
-	t_stack		a;
+//	t_stack		a;
 //	t_stack		b;
 	//1) инициализация
 	//2) парсер
 
-	init_stack(&a);
+//	init_stack(&a);
 	validate_cl_test();
 	parse_nums_test();
 	ft_putendl("tests_src");

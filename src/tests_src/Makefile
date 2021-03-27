@@ -5,9 +5,10 @@ SRC_TESTS_DIR = ./
 INCL_DIR = ../../includes
 LIBFT_FLAGS = -L ../../libft -lft
 
-C_FILES = simple_commands.c init_deque.c \
+C_FILES = commands_1.c init_deque.c \
                       parse_nums.c validate_cl.c \
-                      validate_arg.c
+                      validate_arg.c commands_2.c \
+                      commands_3.c commands_4.c
 
 C_TESTS_FILES = main.c validate_cl.c parse_nums_test.c
 

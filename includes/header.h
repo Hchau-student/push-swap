@@ -22,7 +22,8 @@ typedef struct s_stack
 {
 	t_node				*begin;//чтобы двигать только указатель на двусвязном списке
 	t_node				*end;//чтобы двигать только указатель на двусвязном списке
-	t_node				*(*next)();
+	t_node				*cur;
+	t_node				*(*next)(struct s_stack *);
 	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
 }				t_stack;
 
@@ -50,5 +51,36 @@ int			validate_cl(int ac, char **av);
 int				arg_is_num(char *s);
 int				arg_is_flag(char *flag);
 int				check_match(int *nums_table, t_node *nodes, int size);
+
+/*
+**			commands_1
+*/
+
+void			sa(t_stack *a);
+void			sb(t_stack *b);
+void			ss(t_stack *a, t_stack *b);
+
+/*
+**			commands_2
+*/
+
+void			pb(t_stack *a, t_stack *b);
+void			pa(t_stack *a, t_stack *b);
+
+/*
+**			commands_3
+*/
+
+void		ra(t_stack *a);
+void		rb(t_stack *b);
+void		rr(t_stack *a, t_stack *b);
+
+/*
+**			commands_4
+*/
+
+void		rra(t_stack *a);
+void		rrb(t_stack *b);
+void		rrr(t_stack *a, t_stack *b);
 
 #endif

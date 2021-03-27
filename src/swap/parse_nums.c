@@ -29,6 +29,8 @@ int 			end_list(t_stack *stack, t_node *end, int res)
 		return (res);
 	stack->begin->prev = end;
 	end->next = stack->begin;
+	stack->end = end;
+	stack->cur = stack->begin;
 	return (res);
 }
 
