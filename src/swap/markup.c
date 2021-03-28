@@ -41,3 +41,27 @@ void		markup_greater(t_stack *stack)
 		i++;
 	}
 }
+
+void		indexing(t_stack *a)
+{
+	unsigned int		i;
+	unsigned int		j;
+	t_node				*tmp;
+
+	i = 0;
+	tmp = a->begin;
+	while (i < a->size)
+	{
+		j = 0;
+		while (j < a->size - 1)
+		{
+			if (tmp->val > a->cur->next->val)
+				tmp->index++;
+			j++;
+			a->next(a);
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	a->cur = a->begin;
+}

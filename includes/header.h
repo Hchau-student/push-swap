@@ -90,6 +90,7 @@ void		rrr(t_stack *a, t_stack *b);
 
 void		markup_index(t_stack *stack);
 void		markup_greater(t_stack *stack);
+void		indexing(t_stack *a);
 
 /*
 **		algorithm
