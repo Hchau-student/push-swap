@@ -20,6 +20,7 @@ int 			fill_curr_node(t_node **node, int content)
 		(*node)->prev = NULL;
 	}
 	(*node)->val = content;
+	(*node)->index = 0;
 	return (0);
 }
 

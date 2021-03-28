@@ -11,8 +11,7 @@ int main()
 	//1) инициализация
 	//2) парсер
 
-//	init_stack(&a);
-	validate_cl_test();
+//	validate_cl_test();
 	parse_nums_test();
 	ft_putendl("tests_src");
 }

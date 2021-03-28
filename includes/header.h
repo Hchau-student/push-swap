@@ -9,11 +9,16 @@
 
 #define TABLE_SIZE	3571
 typedef int				t_val;
+#define TRUE	1
+#define FALSE	0
 
 typedef struct	s_node
 {
 	struct s_node		*next;
 	struct s_node		*prev;
+	unsigned int		index;
+	char				markup_greater;
+	char				markup_index;
 	t_val				val;
 	//getter?
 }				t_node;
@@ -23,6 +28,8 @@ typedef struct s_stack
 	t_node				*begin;//чтобы двигать только указатель на двусвязном списке
 	t_node				*end;//чтобы двигать только указатель на двусвязном списке
 	t_node				*cur;
+	t_node				*max_len_greater;
+	t_node				*max_len_index;
 	t_node				*(*next)(struct s_stack *);
 	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
 }				t_stack;
@@ -33,16 +40,10 @@ typedef struct s_program
 }				t_program;
 
 /*
-**		parse_nums
+**			parse_nums
 */
 
-int		parse_nums(t_stack *a, t_program *program, int ac, char **av);
-
-/*
-**		validate_cl
-*/
-
-int			validate_cl(int ac, char **av);
+int				parse_nums(t_stack *a, t_program *program, int ac, char **av);
 
 /*
 **			validate_arg
@@ -71,9 +72,9 @@ void			pa(t_stack *a, t_stack *b);
 **			commands_3
 */
 
-void		ra(t_stack *a);
-void		rb(t_stack *b);
-void		rr(t_stack *a, t_stack *b);
+void			ra(t_stack *a);
+void			rb(t_stack *b);
+void			rr(t_stack *a, t_stack *b);
 
 /*
 **			commands_4
@@ -82,5 +83,18 @@ void		rr(t_stack *a, t_stack *b);
 void		rra(t_stack *a);
 void		rrb(t_stack *b);
 void		rrr(t_stack *a, t_stack *b);
+
+/*
+**			markup
+*/
+
+void		markup_index(t_stack *stack);
+void		markup_greater(t_stack *stack);
+
+/*
+**		algorithm
+*/
+
+void		main_cycle(t_stack *a, t_stack *b);
 
 #endif

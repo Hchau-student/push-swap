@@ -13,12 +13,30 @@ void	error_manager(char *msg)
 
 static t_node	*next_a(t_stack *a)
 {
+	static unsigned int		size = 0;
+
+	if (size >= a->size)
+	{
+		a->cur = a->begin;
+		size = 0;
+		return (a->cur);
+	}
+	size++;
 	a->cur = a->cur->next;
 	return (a->cur);
 }
 
 static t_node	*next_b(t_stack *b)
 {
+	static unsigned int		size = 0;
+
+	if (size >= b->size)
+	{
+		b->cur = b->begin;
+		size = 0;
+		return (b->cur);
+	}
+	size++;
 	b->cur = b->cur->prev;
 	return (b->cur);
 }
