@@ -9,6 +9,7 @@
 
 #define TABLE_SIZE	3571
 typedef int				t_val;
+typedef char			t_bool;
 #define TRUE	1
 #define FALSE	0
 
@@ -97,5 +98,17 @@ void		indexing(t_stack *a);
 */
 
 void		main_cycle(t_stack *a, t_stack *b);
+
+/*
+**		check_sort
+*/
+
+int			sorted(t_stack *a, int (*compare)(t_node *, t_node *));
+int			compare_greater(t_node *lhs, t_node *rhs);
+int			compare_index(t_node *lhs, t_node *rhs);
+
+/*
+**
+*/
 
 #endif
