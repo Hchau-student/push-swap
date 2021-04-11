@@ -36,20 +36,24 @@ static void		r(t_stack *rotate)
 
 	tmp->prev->next = tmp;
 	rotate->begin = tmp;
+	rotate->cur = rotate->begin;
 }
 
 void		ra(t_stack *a)
 {
 	r(a);
+	ft_putendl("ra");
 }
 
 void		rb(t_stack *b)
 {
 	r(b);
+	ft_putendl("rb");
 }
 
 void		rr(t_stack *a, t_stack *b)
 {
 	r(a);
 	r(b);
+	ft_putendl("rr");
 }

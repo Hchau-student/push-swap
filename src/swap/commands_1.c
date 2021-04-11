@@ -26,6 +26,7 @@ void			sa(t_stack *a)
 	if (a->begin == NULL || a->begin->next == NULL)//чекнуть все ошибки
 		return;
 	swap_val(a->begin, a->begin->next);
+	ft_putendl("sa");
 }
 
 void			sb(t_stack *b)
@@ -35,10 +36,12 @@ void			sb(t_stack *b)
 	if (b->begin == NULL || b->begin->next == NULL)//чекнуть все ошибки
 		return;
 	swap_val(b->begin, b->begin->next);
+	ft_putendl("sb");
 }
 
 void			ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sa(b);
+	ft_putendl("ss");
 }

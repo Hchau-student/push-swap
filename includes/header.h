@@ -92,6 +92,7 @@ void		rrr(t_stack *a, t_stack *b);
 void		markup_index(t_stack *stack);
 void		markup_greater(t_stack *stack);
 void		indexing(t_stack *a);
+unsigned int		find_max_len(t_stack *stack);
 
 /*
 **		algorithm
@@ -106,9 +107,19 @@ void		main_cycle(t_stack *a, t_stack *b);
 int			sorted(t_stack *a, int (*compare)(t_node *, t_node *));
 int			compare_greater(t_node *lhs, t_node *rhs);
 int			compare_index(t_node *lhs, t_node *rhs);
+void		find_markup_head(t_stack *stack);
 
 /*
-**
+**		next
 */
+
+t_node		*next_b(t_stack *b);
+t_node		*next_a(t_stack *a);
+
+/*
+**		choose_element
+*/
+
+void		choose_element(t_stack *a, t_stack *b);
 
 #endif

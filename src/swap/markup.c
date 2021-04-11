@@ -26,18 +26,23 @@ void		markup_index(t_stack *stack)
 void		markup_greater(t_stack *stack)
 {
 	unsigned int		i;
+	t_node 				*tmp;
+	t_node				*tmp_next;
 
 	i = 0;
-	stack->cur->markup_greater = TRUE;
-	while (i < stack->size - 1)
+	while (i < stack->size)
 	{
-		if (stack->cur < stack->cur->next)
-		{
-			stack->cur->next->markup_greater = TRUE;
-		}
-		else
-			stack->cur->next->markup_greater = FALSE;
+		tmp = stack->cur;
 		stack->next(stack);
+		tmp_next = stack->cur;
+		if (tmp->val < tmp_next->val)
+		{
+			tmp->markup_greater = TRUE;
+		}
+		else if (tmp_next == stack->begin)
+			tmp->markup_greater = TRUE;
+		else
+			tmp->markup_greater = FALSE;
 		i++;
 	}
 }
@@ -72,7 +77,7 @@ void		find_markup_head(t_stack *stack)
 		stack->next(stack);
 		i++;
 	}
-	stack->cur = stack->begin;
+//	stack->cur = stack->begin;
 }
 
 void		indexing(t_stack *a)
@@ -96,5 +101,39 @@ void		indexing(t_stack *a)
 		tmp = tmp->next;
 		i++;
 	}
-	a->cur = a->begin;
+//	a->cur = a->begin;
+}
+
+unsigned int		find_max_len(t_stack *stack)
+{
+	unsigned int		i;
+	unsigned int		max_len;
+	unsigned int		curr_len;
+	t_node				*tmp;
+
+	i = 0;
+	curr_len = 0;
+	max_len = 0;
+	tmp = stack->begin;
+	markup_greater(stack);
+	while (i < stack->size)
+	{
+		if (stack->cur->markup_greater == TRUE)
+			curr_len++;
+		else
+		{
+			tmp = stack->cur;
+			curr_len = 0;
+		}
+		if (curr_len >= max_len)// > max_len)
+		{
+			max_len = curr_len;
+		}
+//		if (curr_len == max_len && stack->max_len_greater->index > tmp->index)
+//			stack->max_len_greater = tmp;
+		stack->next(stack);
+		i++;
+	}
+//	stack->cur = stack->begin;
+	return (max_len);
 }

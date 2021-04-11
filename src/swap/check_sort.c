@@ -21,19 +21,16 @@ int			compare_greater(t_node *lhs, t_node *rhs)
 int			sorted(t_stack *a, int (*compare)(t_node *, t_node *))
 {
 	unsigned int		i;
+	t_bool				res;
 
 	i = 0;
-	if (a->begin->index != 0)
-		return (FALSE);
+	res = TRUE;
 	while (i < a->size)
 	{
-		if (a->cur == a->end)
-			break ;
 		if (!compare(a->cur, a->cur->next))
-			return (FALSE);
+			res = FALSE;
 		i++;
 		a->next(a);
 	}
-	a->cur = a->begin;
-	return (TRUE);
+	return (res);
 }

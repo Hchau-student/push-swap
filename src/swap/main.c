@@ -11,41 +11,26 @@ void	error_manager(char *msg)
 	exit(0);
 }
 
-static t_node	*next_a(t_stack *a)
-{
-	static unsigned int		size = 0;
-
-	if (size >= a->size)
-	{
-		a->cur = a->begin;
-		size = 0;
-		return (a->cur);
-	}
-	size++;
-	a->cur = a->cur->next;
-	return (a->cur);
-}
-
-static t_node	*next_b(t_stack *b)
-{
-	static unsigned int		size = 0;
-
-	if (size >= b->size)
-	{
-		b->cur = b->begin;
-		size = 0;
-		return (b->cur);
-	}
-	size++;
-	b->cur = b->cur->prev;
-	return (b->cur);
-}
-
 static void init_stack(t_stack *init, t_node *(*next)(t_stack *))
 {
 	init->begin = NULL;
 	init->size = 0;
 	init->next = next;
+}
+
+void	check_res(t_stack *a)
+{
+	unsigned int		i;
+
+	i = 0;
+	ft_putendl("yes");
+	while (i < a->size)
+	{
+		ft_putnbr(a->cur->val);
+		ft_putstr(" ");
+		a->next(a);
+		i++;
+	}
 }
 
 int     main(int ac, char **av)
@@ -54,8 +39,8 @@ int     main(int ac, char **av)
 	t_stack		b;
 	t_program	program;
 
-	init_stack(&a, next_a);
-	init_stack(&b, next_b);
+	init_stack(&a, &next_a);
+	init_stack(&b, &next_b);
 
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");//в b->elem лежит null, а должна ссылаться на a->elem, но иметь size == 0
@@ -63,5 +48,7 @@ int     main(int ac, char **av)
 	b.begin = a.end;
 	b.end = b.begin;
 	b.cur = b.begin;
+	main_cycle(&a, &b);
+	check_res(&a);
 	return (0);
 }

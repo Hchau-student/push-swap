@@ -44,17 +44,39 @@
 #define N_AC2 10
 #define N_AV2 (char* [N_AC2])  {"a.out", "-v", "341242", "3413432", "3413432", "5", "41165", "2861", "445", "-1"}
 
-static t_node	*next_a(t_stack *a)
-{
-	a->cur = a->cur->next;
-	return (a->cur);
-}
 
-static t_node	*next_b(t_stack *b)
-{
-	b->cur = b->cur->prev;
-	return (b->cur);
-}
+//static t_node	*next_a(t_stack *a)
+//{
+//	static unsigned int		size = 1;
+//
+////	ft_putstr("size in next: ");
+////	ft_putnbr(size);
+////	ft_putstr("\n");
+//	if (size >= a->size)
+//	{
+//		a->cur = a->begin;
+//		size = 1;
+//		return (a->cur);
+//	}
+//	size++;
+//	a->cur = a->cur->next;
+//	return (a->cur);
+//}
+//
+//static t_node	*next_b(t_stack *b)
+//{
+//	static unsigned int		size = 1;
+//
+//	if (size >= b->size)
+//	{
+//		b->cur = b->begin;
+//		size = 1;
+//		return (b->cur);
+//	}
+//	size++;
+//	b->cur = b->cur->prev;
+//	return (b->cur);
+//}
 
 static void init_stack(t_stack *init, t_node *(*next)(t_stack *))
 {
@@ -84,6 +106,30 @@ static int		test_content(t_stack *a, char **expected, unsigned int a_size)
 //			return (KO);
 		a->next(a);
 	}
+	ft_putstr("\n");
+
+	for (int i = 0; i < s; i++)
+	{
+		ft_putnbr(a->cur->val);
+		ft_putstr(" ");
+		if (expected[i + 1][0] == '-' && expected[i + 1][1] == 'v')
+			continue ;
+//		if (a->val != ft_atoi(expected[i + 1]))
+//			return (KO);
+		a->next(a);
+	}
+	ft_putstr("\n");
+
+	for (int i = 0; i < s; i++)
+	{
+		ft_putnbr(a->cur->val);
+		ft_putstr(" ");
+		if (expected[i + 1][0] == '-' && expected[i + 1][1] == 'v')
+			continue ;
+//		if (a->val != ft_atoi(expected[i + 1]))
+//			return (KO);
+		a->next(a);
+	}
 	return (OK);
 }
 
@@ -102,12 +148,12 @@ static int 		block_1(int num)
 		b.begin = a.end;
 		b.end = b.begin;
 		b.cur = b.begin;
-//		pb(&a, &b);
-//		pb(&a, &b);
-//		pb(&a, &b);
-//		pb(&a, &b);
-//		pb(&a, &b);
-//		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
 //		pb(&a, &b);
 //		pb(&a, &b);
 //		pb(&a, &b);
