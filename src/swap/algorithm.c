@@ -125,6 +125,7 @@ void		main_cycle(t_stack *a, t_stack *b)
 			i++;
 		}
 		choose_element(a, b);
+		pa(a, b);
 //		choose element in stack B for moving to stack A
 //		move stack A and stack B to prepare them for pa (push a) with chosen element
 //      perform pa (push a) command
