@@ -38,31 +38,34 @@ int			both_commands(unsigned int *a, unsigned int *b)
 void			count_commands(unsigned int *next, unsigned int *reverse, t_stack *stack, t_node *elem)
 {
 	unsigned int		i;
-//	t_node				*tmp;
+	unsigned int		rot;
+	t_node				*tmp;
+	t_iter				*iter;
 
 	i = 0;
-//	tmp = stack->cur;
-//	stack->next(stack);
+	rot = 0;
+	tmp = stack->begin;
+	iter = new_iter(stack);
 	while (i < stack->size)
 	{
-		if (stack->cur->val > elem->val)
+		//1) найти максимально большое число, после которого можно поставить ноду
+		if (iter->cur->val >= elem->val)
 			break ;
-		stack->next(stack);
-		i++;
-		*reverse = *reverse + 1;
-		if (stack->cur->index == elem->index - 1)
-			break ;
-	}
-	while (i < stack->size)
-	{
-		stack->next(stack);
-		*next = *next + 1;
+		if (tmp->val < iter->cur->val)
+		{
+			rot = i;
+			tmp = iter->cur;
+		}
+		iter->next_iter(iter);
 		i++;
 	}
+	*next = i - rot;
+	*reverse = stack->size - *next;
 	if (*next < *reverse)
 		*reverse = 0;
 	else
 		*next = 0;
+	destroy_iter(&iter);
 }
 
 int			count_element(t_stack *a, t_stack *b, t_node *node)

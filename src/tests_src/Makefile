@@ -9,7 +9,7 @@ C_FILES = commands_1.c \
                       parse_nums.c \
                       validate_arg.c commands_2.c \
                       commands_3.c commands_4.c \
-                      next.c choose_element.c
+                      choose_element.c iter.c
 
 C_TESTS_FILES = main.c validate_cl.c parse_nums_test.c
 

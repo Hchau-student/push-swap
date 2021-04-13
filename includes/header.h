@@ -24,14 +24,24 @@ typedef struct	s_node
 	//getter?
 }				t_node;
 
+typedef struct s_iter
+{
+	t_node				*cur;
+	t_node				**begin;
+	unsigned int		*max_size;
+	unsigned int		cur_size;
+	t_node				*(*next_iter)(struct s_iter *);
+}				t_iter;
+
 typedef struct s_stack
 {
 	t_node				*begin;//чтобы двигать только указатель на двусвязном списке
 	t_node				*end;//чтобы двигать только указатель на двусвязном списке
-	t_node				*cur;
+//	t_node				*cur;
 	t_node				*max_len_greater;
 	t_node				*max_len_index;
-	t_node				*(*next)(struct s_stack *);
+//	t_node				*(*next)(struct s_stack *);
+	t_node				*(*next_iter)(t_iter *);
 	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
 }				t_stack;
 
@@ -110,16 +120,18 @@ int			compare_index(t_node *lhs, t_node *rhs);
 void		find_markup_head(t_stack *stack);
 
 /*
-**		next
-*/
-
-t_node		*next_b(t_stack *b);
-t_node		*next_a(t_stack *a);
-
-/*
 **		choose_element
 */
 
 void		choose_element(t_stack *a, t_stack *b);
+
+/*
+**		iter
+*/
+
+t_node		*next_iter_a(t_iter *iter);
+t_node		*next_iter_b(t_iter *iter);
+t_iter		*new_iter(t_stack *stack);
+void		destroy_iter(t_iter **iter);
 
 #endif

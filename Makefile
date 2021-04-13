@@ -17,7 +17,7 @@ C_FILES = main.c \
             commands_3.c commands_4.c \
             algorithm.c markup.c \
             find_markup_head.c check_sort.c \
-            next.c choose_element.c
+            choose_element.c iter.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))

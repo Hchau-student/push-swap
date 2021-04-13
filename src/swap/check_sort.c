@@ -22,15 +22,18 @@ int			sorted(t_stack *a, int (*compare)(t_node *, t_node *))
 {
 	unsigned int		i;
 	t_bool				res;
+	t_iter				*iter;
 
 	i = 0;
+	iter = new_iter(a);
 	res = TRUE;
 	while (i < a->size)
 	{
-		if (!compare(a->cur, a->cur->next))
+		if (!compare(iter->cur, iter->cur->next))
 			res = FALSE;
 		i++;
-		a->next(a);
+		iter->next_iter(iter);
 	}
+	destroy_iter(&iter);
 	return (res);
 }

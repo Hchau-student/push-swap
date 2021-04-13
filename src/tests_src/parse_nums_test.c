@@ -44,50 +44,17 @@
 #define N_AC2 10
 #define N_AV2 (char* [N_AC2])  {"a.out", "-v", "341242", "3413432", "3413432", "5", "41165", "2861", "445", "-1"}
 
-
-//static t_node	*next_a(t_stack *a)
-//{
-//	static unsigned int		size = 1;
-//
-////	ft_putstr("size in next: ");
-////	ft_putnbr(size);
-////	ft_putstr("\n");
-//	if (size >= a->size)
-//	{
-//		a->cur = a->begin;
-//		size = 1;
-//		return (a->cur);
-//	}
-//	size++;
-//	a->cur = a->cur->next;
-//	return (a->cur);
-//}
-//
-//static t_node	*next_b(t_stack *b)
-//{
-//	static unsigned int		size = 1;
-//
-//	if (size >= b->size)
-//	{
-//		b->cur = b->begin;
-//		size = 1;
-//		return (b->cur);
-//	}
-//	size++;
-//	b->cur = b->cur->prev;
-//	return (b->cur);
-//}
-
 static void init_stack(t_stack *init, t_node *(*next)(t_stack *))
 {
 	init->begin = NULL;
 	init->size = 0;
-	init->next = next;
+	init->next_iter = next;
 }
 
 static int		test_content(t_stack *a, char **expected, unsigned int a_size)
 {
 	int		s = a_size;
+	t_iter		*iter;
 
 	ft_putstr("\033[38;2;0;200;39msize == ");
 	ft_putnbr(s);
@@ -95,40 +62,40 @@ static int		test_content(t_stack *a, char **expected, unsigned int a_size)
 	ft_putstr(" ");
 	if (a->begin == NULL && a_size == 0)
 		return (OK);
-//	a = a->prev;
+	iter = new_iter(a);
 	for (int i = 0; i < s; i++)
 	{
-		ft_putnbr(a->cur->val);
+		ft_putnbr(iter->cur->val);
 		ft_putstr(" ");
 		if (expected[i + 1][0] == '-' && expected[i + 1][1] == 'v')
 			continue ;
 //		if (a->val != ft_atoi(expected[i + 1]))
 //			return (KO);
-		a->next(a);
+		iter->next_iter(iter);
 	}
 	ft_putstr("\n");
 
 	for (int i = 0; i < s; i++)
 	{
-		ft_putnbr(a->cur->val);
+		ft_putnbr(iter->cur->val);
 		ft_putstr(" ");
 		if (expected[i + 1][0] == '-' && expected[i + 1][1] == 'v')
 			continue ;
 //		if (a->val != ft_atoi(expected[i + 1]))
 //			return (KO);
-		a->next(a);
+		iter->next_iter(iter);
 	}
 	ft_putstr("\n");
 
 	for (int i = 0; i < s; i++)
 	{
-		ft_putnbr(a->cur->val);
+		ft_putnbr(iter->cur->val);
 		ft_putstr(" ");
 		if (expected[i + 1][0] == '-' && expected[i + 1][1] == 'v')
 			continue ;
 //		if (a->val != ft_atoi(expected[i + 1]))
 //			return (KO);
-		a->next(a);
+		iter->next_iter(iter);
 	}
 	return (OK);
 }
@@ -139,15 +106,14 @@ static int 		block_1(int num)
 	t_stack		b;
 	t_program program;
 
-	init_stack(&a, next_a);
-	init_stack(&b, next_b);
+	init_stack(&a, next_iter_a);
+	init_stack(&b, next_iter_b);
 	if (num == 0) {
 		if (parse_nums(&a, &program, AC0, AV0))
 			return (KO);
 		b.size = 0;
 		b.begin = a.end;
 		b.end = b.begin;
-		b.cur = b.begin;
 		pb(&a, &b);
 		pb(&a, &b);
 		pb(&a, &b);
@@ -200,8 +166,8 @@ static int 		block_2(int num)
 	int			res = 0;
 	t_program program;
 
-	init_stack(&a, next_a);
-	init_stack(&b, next_b);
+	init_stack(&a, next_iter_a);
+	init_stack(&b, next_iter_b);
 	if (num == 0)
 	{
 		res = parse_nums(&a, &program, N_AC0, AV0);

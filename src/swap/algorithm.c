@@ -75,21 +75,25 @@ t_bool		needs_to_swap(t_stack *a)
 
 int			has_false(t_stack *a) {
 	unsigned int i = 0;
+	t_iter		*iter;
 	t_bool		res = FALSE;
 
+	iter = new_iter(a);
 	while (i < a->size)
 	{
-		if (a->cur->markup_greater == FALSE)
+		if (iter->cur->markup_greater == FALSE)
 			res = TRUE;
-		a->next(a);
+		iter->next_iter(iter);
 		i++;
 	}
+	destroy_iter(&iter);
 	return (res);
 }
 
 void		main_cycle(t_stack *a, t_stack *b)
 {
 	unsigned int			main_size;
+	t_iter					*iter;
 
 	main_size = a->size;
 	indexing(a);
@@ -113,15 +117,16 @@ void		main_cycle(t_stack *a, t_stack *b)
 			ra(a);
 		}
 	}
+	iter = new_iter(a);
 	while (b->size != 0)
 	{
 		i = 0;
 		ft_putendl("yes1");
 		while (i < a->size)
 		{
-			ft_putnbr(a->cur->val);
+			ft_putnbr(iter->cur->val);
 			ft_putstr(" ");
-			a->next(a);
+			iter->next_iter(iter);
 			i++;
 		}
 		choose_element(a, b);
