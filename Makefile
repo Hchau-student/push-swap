@@ -16,7 +16,7 @@ C_FILES = main.c \
             commands_1.c commands_2.c \
             commands_3.c commands_4.c \
             algorithm.c markup.c \
-            find_markup_head.c check_sort.c \
+            check_sort.c prepare_a.c get_from_b.c \
             choose_element.c iter.c
 
 OBJ_FILES = $(C_FILES:.c=.o)

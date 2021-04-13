@@ -134,4 +134,16 @@ t_node		*next_iter_b(t_iter *iter);
 t_iter		*new_iter(t_stack *stack);
 void		destroy_iter(t_iter **iter);
 
+/*
+** 		prepare_a
+*/
+
+void		prepare_a(t_stack *a, t_stack *b);
+
+/*
+**		get_from_b
+*/
+
+void		get_from_b(t_stack *a, t_stack *b);
+
 #endif

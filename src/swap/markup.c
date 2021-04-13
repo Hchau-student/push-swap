@@ -44,8 +44,8 @@ void		markup_greater(t_stack *stack)
 		{
 			tmp->markup_greater = TRUE;
 		}
-		else if (tmp_next == stack->begin)
-			tmp->markup_greater = TRUE;
+//		else if (tmp_next == stack->begin)
+//			tmp->markup_greater = TRUE;
 		else
 			tmp->markup_greater = FALSE;
 		i++;
