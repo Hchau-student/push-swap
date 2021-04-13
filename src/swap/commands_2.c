@@ -19,9 +19,7 @@ void			pa(t_stack *a, t_stack *b)
 	a->size++;
 	b->begin = b->begin->prev;
 	a->begin = a->begin->prev;
-//	b->cur = b->begin;
-//	a->cur = a->begin;
-	ft_putendl("pa");
+//	ft_putendl("pa");
 }
 
 void			pb(t_stack *a, t_stack *b)
@@ -32,7 +30,5 @@ void			pb(t_stack *a, t_stack *b)
 	b->size++;
 	a->begin = a->begin->next;
 	b->begin = b->begin->next;
-//	b->cur = b->begin;
-//	a->cur = a->begin;
-	ft_putendl("pb");
+//	ft_putendl("pb");
 }

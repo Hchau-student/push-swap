@@ -36,7 +36,6 @@ static void		r(t_stack *rotate)
 
 	tmp->prev->next = tmp;
 	rotate->begin = tmp;
-//	rotate->cur = rotate->begin;
 }
 
 void		ra(t_stack *a)

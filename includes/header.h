@@ -28,9 +28,11 @@ typedef struct s_iter
 {
 	t_node				*cur;
 	t_node				**begin;
+	t_node				**end;
 	unsigned int		*max_size;
 	unsigned int		cur_size;
 	t_node				*(*next_iter)(struct s_iter *);
+	t_node				*(*prev)(struct s_iter *);
 }				t_iter;
 
 typedef struct s_stack
@@ -42,6 +44,7 @@ typedef struct s_stack
 	t_node				*max_len_index;
 //	t_node				*(*next)(struct s_stack *);
 	t_node				*(*next_iter)(t_iter *);
+	t_node				*(*prev_iter)(struct s_iter *);
 	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
 }				t_stack;
 
@@ -131,6 +134,8 @@ void		choose_element(t_stack *a, t_stack *b);
 
 t_node		*next_iter_a(t_iter *iter);
 t_node		*next_iter_b(t_iter *iter);
+t_node		*prev_iter_a(t_iter *iter);
+t_node		*prev_iter_b(t_iter *iter);
 t_iter		*new_iter(t_stack *stack);
 void		destroy_iter(t_iter **iter);
 

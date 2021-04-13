@@ -12,10 +12,12 @@ t_iter			*new_iter(t_stack *stack)
 	if (iter == NULL)
 		return (NULL);
 	iter->begin = &(stack->begin);
+	iter->end = &(stack->end);
 	iter->cur = stack->begin;
 	iter->cur_size = 1;
 	iter->max_size = &stack->size;
 	iter->next_iter = stack->next_iter;
+	iter->prev = stack->prev_iter;
 	return (iter);
 }
 
@@ -50,5 +52,31 @@ t_node		*next_iter_b(t_iter *iter)
 	}
 	iter->cur_size++;
 	iter->cur = iter->cur->prev;
+	return (iter->cur);
+}
+
+t_node		*prev_iter_a(t_iter *iter)
+{
+	if (iter->cur_size <= 1)
+	{
+		iter->cur = *(iter->end);
+		iter->cur_size = 1;
+		return (iter->cur);
+	}
+	iter->cur_size++;
+	iter->cur = iter->cur->prev;
+	return (iter->cur);
+}
+
+t_node		*prev_iter_b(t_iter *iter)
+{
+	if (iter->cur_size <= 1)
+	{
+		iter->cur = *(iter->end);
+		iter->cur_size = 1;
+		return (iter->cur);
+	}
+	iter->cur_size++;
+	iter->cur = iter->cur->next;
 	return (iter->cur);
 }

@@ -39,28 +39,32 @@ void			count_commands(unsigned int *next, unsigned int *reverse, t_stack *stack,
 {
 	unsigned int		i;
 	unsigned int		rot;
-	t_node				*tmp;
+	t_node				*cur_max;
 	t_iter				*iter;
 
 	i = 0;
 	rot = 0;
-	tmp = stack->begin;
+	cur_max = stack->begin;
 	iter = new_iter(stack);
 	while (i < stack->size)
 	{
 		//1) найти максимально большое число, после которого можно поставить ноду
 		if (iter->cur->val >= elem->val)
+		{
+			iter->prev(iter);
+			rot = i - 1;
 			break ;
-		if (tmp->val < iter->cur->val)
+		}
+		if (iter->cur->val > cur_max->val)
 		{
 			rot = i;
-			tmp = iter->cur;
+			cur_max = iter->cur;
 		}
 		iter->next_iter(iter);
 		i++;
 	}
-	*next = i - rot;
-	*reverse = stack->size - *next;
+	*reverse = rot;
+	*next = stack->size - *reverse;
 	if (*next < *reverse)
 		*reverse = 0;
 	else
@@ -68,7 +72,7 @@ void			count_commands(unsigned int *next, unsigned int *reverse, t_stack *stack,
 	destroy_iter(&iter);
 }
 
-int			count_element(t_stack *a, t_stack *b, t_node *node)
+unsigned int			count_element(t_stack *a, t_stack *b, t_node *node)
 {
 	unsigned int		ra_count;
 	unsigned int		rra_count;
@@ -90,28 +94,29 @@ int			count_element(t_stack *a, t_stack *b, t_node *node)
 
 t_node		*find_list(t_stack *a, t_stack *b)
 {
-	t_node				*tmp;
+	t_iter				*iter;
 	unsigned int		i;
-	unsigned int		max;
+	unsigned int		min;
 	unsigned int		cur;
 	t_node				*res;
 
 	i = 0;
+	iter = new_iter(b);
 	cur = MAX_INT;
-	max = MAX_INT;
+	min = MAX_INT;
 	res = b->begin;
-	tmp = b->begin;
 	while (i < b->size)
 	{
-		cur = count_element(a, b, tmp);
-		if (cur <= max)
+		cur = count_element(a, b, iter->cur);
+		if (cur < min)
 		{
-			max = cur;
-			res = tmp;
+			min = cur;
+			res = iter->cur;
 		}
-		tmp = tmp->prev;
+		iter->next_iter(iter);
 		i++;
 	}
+	destroy_iter(&iter);
 	return (res);
 }
 

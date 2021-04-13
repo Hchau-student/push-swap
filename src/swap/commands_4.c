@@ -37,7 +37,6 @@ void		rra(t_stack *a)
 {
 	r(a);
 	ft_putendl("rra");
-
 }
 
 void		rrb(t_stack *b)
