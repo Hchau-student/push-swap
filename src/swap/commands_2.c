@@ -17,18 +17,35 @@ void			pa(t_stack *a, t_stack *b)
 		return;
 	b->size--;
 	a->size++;
+
+	if (a->size == 0)
+	{
+		a->begin = b->begin;
+		a->end = b->begin;
+	}
+	else
+	{
+		a->begin = b->begin;
+	}
 	b->begin = b->begin->prev;
-	a->begin = a->begin->prev;
-//	ft_putendl("pa");
+	ft_putendl("pa");
 }
 
 void			pb(t_stack *a, t_stack *b)
 {
 	if (a->size == 0)
 		return;
+	if (b->size == 0)
+	{
+		b->begin = a->begin;
+		b->end = a->begin;
+	}
+	else
+	{
+		b->begin = a->begin;
+	}
 	a->size--;
 	b->size++;
 	a->begin = a->begin->next;
-	b->begin = b->begin->next;
-//	ft_putendl("pb");
+	ft_putendl("pb");
 }

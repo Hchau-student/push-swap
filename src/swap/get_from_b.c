@@ -14,10 +14,23 @@ void		get_from_b(t_stack *a, t_stack *b)
 	iter_b = new_iter(b);
 	while (b->size != 0)
 	{
+		iter = new_iter(a);
+		iter_b = new_iter(b);
 		i = 0;
 		ft_putstr("a: ");
-		while (i < a->size)
+//		ft_putnbr(a->size);
+		iter = new_iter(a);
+//		ft_putnbr(a->begin->val);
+		while (i < a->size)// * 2)
 		{
+			if (i == a->size)
+			{
+				ft_putstr(": ");
+				ft_putnbr(a->end->val);
+				ft_putstr(": ");
+//				ft_putnbr(a->begin->val);
+				iter = new_iter(a);
+			}
 			ft_putnbr(iter->cur->val);
 			ft_putstr(" ");
 			iter->next_iter(iter);
@@ -25,9 +38,17 @@ void		get_from_b(t_stack *a, t_stack *b)
 		}
 		ft_putendl("");
 		ft_putstr("b: ");
+//		ft_putnbr(b->begin->val);
 		i = 0;
-		while (i < b->size)
+		while (i < b->size)// * 2)
 		{
+			if (i == b->size)
+			{
+				ft_putstr(": ");
+//				ft_putnbr(b->end->val);
+//				ft_putstr(": ");
+				iter_b = new_iter(b);
+			}
 			ft_putnbr(iter_b->cur->val);
 			ft_putstr(" ");
 			iter_b->next_iter(iter_b);

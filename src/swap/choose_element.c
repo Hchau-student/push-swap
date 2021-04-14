@@ -63,8 +63,8 @@ void			count_commands(unsigned int *next, unsigned int *reverse, t_stack *stack,
 		iter->next_iter(iter);
 		i++;
 	}
-	*reverse = rot;
-	*next = stack->size - *reverse;
+	*next = rot;
+	*reverse = stack->size - *next;
 	if (*next < *reverse)
 		*reverse = 0;
 	else
@@ -117,6 +117,9 @@ t_node		*find_list(t_stack *a, t_stack *b)
 		i++;
 	}
 	destroy_iter(&iter);
+	ft_putstr("count_commands: ");
+	ft_putnbr(min);
+	ft_putendl("");
 	return (res);
 }
 

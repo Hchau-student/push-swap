@@ -33,15 +33,32 @@ static void		r(t_stack *rotate)
 	rotate->end = tmp;
 }
 
-void		rra(t_stack *a)
+void		ra(t_stack *a)
 {
 	r(a);
 	ft_putendl("rra");
 }
 
-void		rrb(t_stack *b)
+void		rb(t_stack *rotate)
 {
-	r(b);
+//	r(rotate);
+	t_node		*tmp;
+	t_node		*new_begin;
+
+	if (rotate->size <= 1)
+		return;
+	if (rotate->begin == NULL || rotate->end == NULL)
+		return;
+	tmp = rotate->begin;
+	rotate->begin = rotate->begin->prev;
+	new_begin = tmp->prev;
+	new_begin->next = tmp->next;
+	new_begin->next->prev = new_begin;
+	tmp->next = rotate->end;
+	tmp->prev = rotate->end->prev;
+	rotate->end->prev = tmp;
+	tmp->prev->next = tmp;
+	rotate->end = tmp;
 	ft_putendl("rrb");
 }
 
