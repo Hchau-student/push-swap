@@ -1,10 +1,6 @@
-//
-// Created by Hugor Chau on 3/28/21.
-//
-
 #include "header.h"
 
-void		markup_index(t_stack *stack)
+void	markup_index(t_stack *stack)
 {
 	unsigned int		i;
 	t_iter				*iter;
@@ -26,10 +22,10 @@ void		markup_index(t_stack *stack)
 	destroy_iter(&iter);
 }
 
-void		markup_greater(t_stack *stack)
+void	markup_greater(t_stack *stack)
 {
 	unsigned int		i;
-	t_node 				*tmp;
+	t_node				*tmp;
 	t_node				*tmp_next;
 	t_iter				*iter;
 
@@ -44,8 +40,6 @@ void		markup_greater(t_stack *stack)
 		{
 			tmp->markup_greater = TRUE;
 		}
-//		else if (tmp_next == stack->begin)
-//			tmp->markup_greater = TRUE;
 		else
 			tmp->markup_greater = FALSE;
 		i++;
@@ -53,7 +47,7 @@ void		markup_greater(t_stack *stack)
 	destroy_iter(&iter);
 }
 
-void		find_markup_head(t_stack *stack)
+void	find_markup_head(t_stack *stack)
 {
 	unsigned int		i;
 	unsigned int		max_len;
@@ -75,22 +69,18 @@ void		find_markup_head(t_stack *stack)
 			tmp = iter->cur;
 			curr_len = 0;
 		}
-		if (curr_len >= max_len)// > max_len)
+		if (curr_len >= max_len)
 		{
 			stack->max_len_greater = tmp;
 			max_len = curr_len;
 		}
-//		if (curr_len == max_len && stack->max_len_greater->index > tmp->index)
-//			stack->max_len_greater = tmp;
 		iter->next_iter(iter);
-//		stack->next(stack);
 		i++;
 	}
 	destroy_iter(&iter);
-//	stack->cur = stack->begin;
 }
 
-void		indexing(t_stack *a)
+void	indexing(t_stack *a)
 {
 	unsigned int		i;
 	unsigned int		j;
@@ -114,10 +104,9 @@ void		indexing(t_stack *a)
 		i++;
 	}
 	destroy_iter(&iter);
-//	a->cur = a->begin;
 }
 
-unsigned int		find_max_len(t_stack *stack)
+unsigned int	find_max_len(t_stack *stack)
 {
 	unsigned int		i;
 	unsigned int		max_len;
@@ -140,16 +129,13 @@ unsigned int		find_max_len(t_stack *stack)
 			tmp = iter->cur;
 			curr_len = 0;
 		}
-		if (curr_len >= max_len)// > max_len)
+		if (curr_len >= max_len)
 		{
 			max_len = curr_len;
 		}
-//		if (curr_len == max_len && stack->max_len_greater->index > tmp->index)
-//			stack->max_len_greater = tmp;
 		iter->next_iter(iter);
 		i++;
 	}
-//	stack->cur = stack->begin;
 	destroy_iter(&iter);
 	return (max_len);
 }

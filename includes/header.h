@@ -7,11 +7,12 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define TABLE_SIZE	3571
+#define TBL_SZ  	    3571
 typedef int				t_val;
 typedef char			t_bool;
 #define TRUE	1
 #define FALSE	0
+#define MAX_INT		    0xFFFFFFFF
 
 typedef struct	s_node
 {
@@ -127,6 +128,14 @@ void		find_markup_head(t_stack *stack);
 */
 
 void		choose_element(t_stack *a, t_stack *b);
+
+/*
+**		choose_element_count
+*/
+
+void			count_commands_a(unsigned int *rota, unsigned int *rrota, t_stack *stack, t_node *elem);
+void			count_commands_b(unsigned int *rrota, unsigned int *rota, t_stack *b, t_node *elem);
+unsigned int	count_element_a(t_stack *a, t_stack *b, t_node *node);
 
 /*
 **		iter

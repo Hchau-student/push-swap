@@ -1,9 +1,6 @@
-//
-// Created by Hugor Chau on 4/13/21.
-//
 #include "header.h"
 
-void			sa_test(t_node *a, t_node *a_next)
+void	sa_test(t_node *a, t_node *a_next)
 {
 	t_val		tmp;
 
@@ -12,21 +9,19 @@ void			sa_test(t_node *a, t_node *a_next)
 	a_next->val = tmp;
 }
 
-t_bool		needs_to_swap(t_stack *a)
+t_bool	needs_to_swap(t_stack *a)
 {
 	unsigned int	first_res;
 	unsigned int	second_res;
 
 	if (a->size <= 1)
-		return FALSE;
-	if (a->begin == NULL || a->begin->next == NULL)//чекнуть все ошибки
-		return FALSE;
+		return (FALSE);
+	if (a->begin == NULL || a->begin->next == NULL)
+		return (FALSE);
 	markup_greater(a);
-//	find_markup_head(a);
 	first_res = find_max_len(a);
 	sa_test(a->begin, a->begin->next);
 	markup_greater(a);
-//	find_markup_head(a);
 	second_res = find_max_len(a);
 	sa_test(a->begin, a->begin->next);
 	markup_greater(a);
@@ -35,11 +30,14 @@ t_bool		needs_to_swap(t_stack *a)
 	return (FALSE);
 }
 
-int			has_false(t_stack *a) {
-	unsigned int i = 0;
-	t_iter		*iter;
-	t_bool		res = FALSE;
+int	has_false(t_stack *a)
+{
+	unsigned int	i;
+	t_iter			*iter;
+	t_bool			res;
 
+	i = 0;
+	res = FALSE;
 	iter = new_iter(a);
 	while (i < a->size)
 	{
@@ -52,7 +50,7 @@ int			has_false(t_stack *a) {
 	return (res);
 }
 
-void		prepare_a(t_stack *a, t_stack *b)
+void	prepare_a(t_stack *a, t_stack *b)
 {
 	while (has_false(a))
 	{

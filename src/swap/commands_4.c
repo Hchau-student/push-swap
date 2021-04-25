@@ -3,24 +3,26 @@
 //
 
 /*
- * ra : rotate a - shift up all elements of stack a by 1. The first element becomes
+ * ra : rotate a - shift up all elements of
+ * stack a by 1. The first element becomes
 the last one.
-rb : rotate b - shift up all elements of stack b by 1. The first element becomes
+rb : rotate b - shift up all elements of
+ stack b by 1. The first element becomes
 the last one.
 rr : ra and rb at the same time.
 */
 
 #include "header.h"
 
-static void		ra_void(t_stack *rotate)
+static void	ra_void(t_stack *rotate)
 {
 	t_node		*tmp;
 	t_node		*new_begin;
 
 	if (rotate->size <= 1)
-		return;
+		return ;
 	if (rotate->begin == NULL || rotate->end == NULL)
-		return;
+		return ;
 	tmp = rotate->begin;
 	rotate->begin = rotate->begin->next;
 	new_begin = tmp->next;
@@ -33,21 +35,21 @@ static void		ra_void(t_stack *rotate)
 	rotate->end = tmp;
 }
 
-void		ra(t_stack *a)
+void	ra(t_stack *a)
 {
 	ra_void(a);
 	ft_putendl("ra");
 }
 
-void		rb_void(t_stack *rotate)
+void	rb_void(t_stack *rotate)
 {
 	t_node		*tmp;
 	t_node		*new_begin;
 
 	if (rotate->size <= 1)
-		return;
+		return ;
 	if (rotate->begin == NULL || rotate->end == NULL)
-		return;
+		return ;
 	tmp = rotate->begin;
 	rotate->begin = rotate->begin->prev;
 	new_begin = tmp->prev;
@@ -60,12 +62,13 @@ void		rb_void(t_stack *rotate)
 	rotate->end = tmp;
 }
 
-void		rb(t_stack *b)
+void	rb(t_stack *b)
 {
-    ra_void(b);
-    ft_putendl("rb");
+	ra_void(b);
+	ft_putendl("rb");
 }
-void		rr(t_stack *a, t_stack *b)
+
+void	rr(t_stack *a, t_stack *b)
 {
 	ra_void(a);
 	rb_void(b);

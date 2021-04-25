@@ -1,0 +1,19 @@
+algorithm.c: OK!
+check_sort.c: OK!
+choose_element.c: OK!
+choose_element_count.c: Error!
+Error: TOO_MANY_LINES       (line:  38, col:   1):	Function has more than 25 lines
+commands_1.c: OK!
+commands_2.c: OK!
+commands_3.c: OK!
+commands_4.c: OK!
+get_from_b.c: OK!
+iter.c: OK!
+iter_b.c: OK!
+main.c: OK!
+markup.c: Error!
+Error: TOO_MANY_LINES       (line:  81, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 141, col:   1):	Function has more than 25 lines
+parse_nums.c: OK!
+prepare_a.c: OK!
+validate_arg.c: OK!

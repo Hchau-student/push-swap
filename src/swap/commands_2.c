@@ -5,19 +5,21 @@
 #include "header.h"
 
 /*
- * pa : push a - take the first element at the top of b and put it at the top of a. Do
-nothing if b is empty.
-pb : push b - take the first element at the top of a and put it at the top of b. Do
-nothing if a is empty.
+** pa : push a - take the first element at the
+** top of b and put it at the top of a. Do
+** nothing if b is empty.
+**
+** pb : push b - take the first element at the
+** top of a and put it at the top of b. Do
+** nothing if a is empty.
  */
 
-void			pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	if (b->size == 0)
-		return;
+		return ;
 	b->size--;
 	a->size++;
-
 	if (a->size == 0)
 	{
 		a->begin = b->begin;
@@ -31,10 +33,10 @@ void			pa(t_stack *a, t_stack *b)
 	ft_putendl("pa");
 }
 
-void			pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
 	if (a->size == 0)
-		return;
+		return ;
 	if (b->size == 0)
 	{
 		b->begin = a->begin;

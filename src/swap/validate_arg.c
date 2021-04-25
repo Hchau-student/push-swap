@@ -1,10 +1,6 @@
-//
-// Created by Hugor Chau on 3/26/21.
-//
-
 #include "header.h"
 
-int				arg_is_num(char *s)
+int	arg_is_num(char *s)
 {
 	char		*check;
 
@@ -28,7 +24,7 @@ int				arg_is_num(char *s)
 	return (1);
 }
 
-int				arg_is_flag(char *flag)
+int	arg_is_flag(char *flag)
 {
 	if (*flag != '-')
 		return (1);
@@ -39,17 +35,20 @@ int				arg_is_flag(char *flag)
 	return (0);
 }
 
-int				check_match(int *nums_table, t_node *nodes, int size)
+int	check_match(int *nums_table, t_node *nodes, int size)
 {
-	int		curr_index;
+	int		cur_inx;
 	int		val;
 
 	if (size == 0 || nodes == NULL)
 		return (0);
 	val = nodes->val;
-	curr_index = nodes->val < 0 ? nodes->val * -1 : nodes->val;
+	if (nodes->val < 0)
+		cur_inx = -1;
+	else
+		cur_inx = nodes->val;
 	nodes = nodes->next;
-	if (((nums_table[curr_index % TABLE_SIZE]) & (1 << (curr_index % sizeof(int)))) != 0)
+	if (((nums_table[cur_inx % TBL_SZ]) & (1 << (cur_inx % sizeof(int)))) != 0)
 	{
 		while (size)
 		{
@@ -61,6 +60,6 @@ int				check_match(int *nums_table, t_node *nodes, int size)
 			size--;
 		}
 	}
-	nums_table[curr_index % TABLE_SIZE] |= (1 << (curr_index % sizeof(int)));
+	nums_table[cur_inx % TBL_SZ] |= (1 << (cur_inx % sizeof(int)));
 	return (0);
 }

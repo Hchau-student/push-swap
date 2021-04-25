@@ -4,13 +4,13 @@
 
 #include "header.h"
 
-int 			fill_curr_node(t_node **node, int content)
+int	fill_curr_node(t_node **node, int content)
 {
 	if (*node == NULL)
 	{
-			*node = ft_memalloc(sizeof(t_node));
-			(*node)->next = (*node);
-			(*node)->prev = (*node);
+		*node = ft_memalloc(sizeof(t_node));
+		(*node)->next = (*node);
+		(*node)->prev = (*node);
 	}
 	else
 	{
@@ -24,7 +24,7 @@ int 			fill_curr_node(t_node **node, int content)
 	return (0);
 }
 
-int 			end_list(t_stack *stack, t_node *end, int res)
+int	end_list(t_stack *stack, t_node *end, int res)
 {
 	if (stack->size == 0)
 		return (res);
@@ -34,7 +34,7 @@ int 			end_list(t_stack *stack, t_node *end, int res)
 	return (res);
 }
 
-int				get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
+int	get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
 {
 	fill_curr_node(&a->begin, ft_atoi(arg));
 	if (*tmp == NULL)
@@ -45,7 +45,7 @@ int				get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
 	return (0);
 }
 
-int				fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
+int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 {
 	static t_node		*tmp = NULL;
 	int					i;
@@ -71,17 +71,15 @@ int				fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_tabl
 	return (end_list(a, tmp, 0));
 }
 
-int 		parse_nums(t_stack *a, t_program *program, int ac, char **av)
+int	parse_nums(t_stack *a, t_program *program, int ac, char **av)
 {
 	int			i;
-	int			nums_table[TABLE_SIZE];
+	int			nums_table[TBL_SZ];
 	char		**args;
 
 	i = 1;
-	ft_bzero(nums_table, sizeof(int) * TABLE_SIZE);
-
+	ft_bzero(nums_table, sizeof(int) * TBL_SZ);
 	a->begin = NULL;
-
 	a->size = 0;
 	while (i < ac)
 	{
