@@ -3,16 +3,16 @@
 //
 
 /*
- * rra : reverse rotate a - shift down all elements of stack a by 1. The last element
-becomes the first one.
-rrb : reverse rotate b - shift down all elements of stack b by 1. The last element
-becomes the first one.
-rrr : rra and rrb at the same time.
+ * ra : rotate a - shift up all elements of stack a by 1. The first element becomes
+the last one.
+rb : rotate b - shift up all elements of stack b by 1. The first element becomes
+the last one.
+rr : ra and rb at the same time.
 */
 
 #include "header.h"
 
-static void		r(t_stack *rotate)
+static void		ra_void(t_stack *rotate)
 {
 	t_node		*tmp;
 	t_node		*new_begin;
@@ -35,13 +35,12 @@ static void		r(t_stack *rotate)
 
 void		ra(t_stack *a)
 {
-	r(a);
-	ft_putendl("rra");
+	ra_void(a);
+	ft_putendl("ra");
 }
 
-void		rb(t_stack *rotate)
+void		rb_void(t_stack *rotate)
 {
-//	r(rotate);
 	t_node		*tmp;
 	t_node		*new_begin;
 
@@ -59,12 +58,16 @@ void		rb(t_stack *rotate)
 	rotate->end->prev = tmp;
 	tmp->prev->next = tmp;
 	rotate->end = tmp;
-	ft_putendl("rrb");
 }
 
-void		rrr(t_stack *a, t_stack *b)
+void		rb(t_stack *b)
 {
-	r(a);
-	r(b);
-	ft_putendl("rrr");
+    ra_void(b);
+    ft_putendl("rb");
+}
+void		rr(t_stack *a, t_stack *b)
+{
+	ra_void(a);
+	rb_void(b);
+	ft_putendl("rr");
 }

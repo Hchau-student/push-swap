@@ -31,7 +31,7 @@ void		destroy_iter(t_iter **iter)
 
 t_node		*next_iter_a(t_iter *iter)
 {
-	if (iter->cur_size >= *(iter->max_size))
+	if (iter->cur_size >= *(iter->max_size) || *(iter->end) == iter->cur)
 	{
 		iter->cur = *(iter->begin);
 		iter->cur_size = 1;
