@@ -1,5 +1,26 @@
 #include "header.h"
 
+int	right_position(t_iter *iter, t_iter *prev_iter, t_node *elem)
+{
+	if (prev_iter->cur->val > iter->cur->val)
+	{
+		if (elem->val < iter->cur->val
+			|| elem->val > prev_iter->cur->val)
+			return (TRUE);
+	}
+	if (iter->cur->val > elem->val && prev_iter->cur->val < elem->val)
+		return (TRUE);
+	return (FALSE);
+}
+
+void	chose_direction(unsigned int *rot, unsigned int *rev_rot)
+{
+	if (*rot < *rev_rot)
+		*rev_rot = 0;
+	else
+		*rot = 0;
+}
+
 void	count_commands_a(unsigned int *rota, unsigned int *rrota,
 						t_stack *stack, t_node *elem)
 {
@@ -15,13 +36,7 @@ void	count_commands_a(unsigned int *rota, unsigned int *rrota,
 	prev_iter->prev(prev_iter);
 	while (i < stack->size)
 	{
-		if (prev_iter->cur->val > iter->cur->val)
-		{
-			if (elem->val < iter->cur->val
-				|| elem->val > prev_iter->cur->val)
-				break ;
-		}
-		if (iter->cur->val > elem->val && prev_iter->cur->val < elem->val)
+		if (right_position(iter, prev_iter, elem) == TRUE)
 			break ;
 		*rota = *rota + 1;
 		*rrota = *rrota - 1;
@@ -29,10 +44,7 @@ void	count_commands_a(unsigned int *rota, unsigned int *rrota,
 		prev_iter->next_iter(prev_iter);
 		i++;
 	}
-	if (*rota < *rrota)
-		*rrota = 0;
-	else
-		*rota = 0;
+	chose_direction(rota, rrota);
 	destroy_iter(&iter);
 	destroy_iter(&prev_iter);
 }
@@ -54,10 +66,7 @@ void	count_commands_b(unsigned int *rrota, unsigned int *rota,
 		iter->next_iter(iter);
 		i++;
 	}
-	if (*rota < *rrota)
-		*rrota = 0;
-	else
-		*rota = 0;
+	chose_direction(rota, rrota);
 	destroy_iter(&iter);
 }
 

@@ -18,7 +18,7 @@ C_FILES = main.c \
             algorithm.c markup.c \
             check_sort.c prepare_a.c get_from_b.c \
             choose_element.c iter.c choose_element_count.c \
-            iter_b.c
+            iter_b.c find_max_len.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
