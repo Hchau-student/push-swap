@@ -1,18 +1,9 @@
 #ifndef PUSH_HEADER_H
 #define PUSH_HEADER_H
 
-#include "libft.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "commons.h"
 
 #define TBL_SZ  	    3571
-typedef int				t_val;
-typedef char			t_bool;
-#define TRUE	1
-#define FALSE	0
-#define MAX_INT		    0xFFFFFFFF
 
 typedef struct	s_node
 {
@@ -22,7 +13,6 @@ typedef struct	s_node
 	char				markup_greater;
 	char				markup_index;
 	t_val				val;
-	//getter?
 }				t_node;
 
 typedef struct s_iter
@@ -38,15 +28,13 @@ typedef struct s_iter
 
 typedef struct s_stack
 {
-	t_node				*begin;//чтобы двигать только указатель на двусвязном списке
-	t_node				*end;//чтобы двигать только указатель на двусвязном списке
-//	t_node				*cur;
+	t_node				*begin;
+	t_node				*end;
 	t_node				*max_len_greater;
 	t_node				*max_len_index;
-//	t_node				*(*next)(struct s_stack *);
 	t_node				*(*next_iter)(t_iter *);
 	t_node				*(*prev_iter)(struct s_iter *);
-	unsigned int		size;//не содержит дубликатов; только инты; достаточно числа типа unsigned_int
+	unsigned int		size;
 }				t_stack;
 
 typedef struct s_program
@@ -103,9 +91,9 @@ void		rrr(t_stack *a, t_stack *b);
 **			markup
 */
 
-void		markup_index(t_stack *stack);
-void		markup_greater(t_stack *stack);
-void		indexing(t_stack *a);
+void				markup_index(t_stack *stack);
+void				markup_greater(t_stack *stack);
+void				indexing(t_stack *a);
 unsigned int		find_max_len(t_stack *stack);
 
 /*

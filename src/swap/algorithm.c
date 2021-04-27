@@ -8,7 +8,7 @@ void	get_a_sorted(t_stack *a)
 		rotate_a = &rra;
 	else
 		rotate_a = &ra;
-	while (a->begin->index != 0)
+	while (a->begin->val > a->end->val)
 		rotate_a(a);
 }
 

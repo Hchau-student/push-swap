@@ -4,11 +4,13 @@ RED = \033[38;2;200;30;70m
 YELLOW = \033[38;2;200;200;50m
 GREEN = \033[38;2;0;200;0m
 
-NAME = $(SWAP)
+NAME = $(SWAP) $(CHECKER)
 SWAP = push_swap
 CHECKER = checker
 OBJ_DIR = ./obj
 SRC_SWAP_DIR = ./src/swap
+SRC_COMMONS_DIR = ./src/commons
+SRC_CHECKER_DIR = ./src/checker
 INCL_DIR = ./includes
 
 C_FILES = main.c \
@@ -20,8 +22,16 @@ C_FILES = main.c \
             choose_element.c iter.c choose_element_count.c \
             iter_b.c find_max_len.c
 
+C_COMMON_FILES = error.c
+
+C_CHECKER_FILES = checker.c
+
 OBJ_FILES = $(C_FILES:.c=.o)
+OBJ_FILES_COMMON = $(C_COMMON_FILES:.c=.o)
+OBJ_FILES_CHECKER = $(C_CHECKER_FILES:.c=.o)
 RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
+RAW_OBJ_FILES_COMMON = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES_COMMON))
+RAW_OBJ_FILES_CHECKER += $(addprefix $(OBJ_DIR)/,$(OBJ_FILES_CHECKER))
 LIBFT_FLAGS = -L libft/ -lft
 NOT_EXIST	= tfbil
 
@@ -39,13 +49,23 @@ $(NOT_EXIST):
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
-$(NAME): $(RAW_OBJ_FILES)
+$(SWAP): $(RAW_OBJ_FILES) $(RAW_OBJ_FILES_COMMON)
 	@make -sC ./libft
-	@gcc $(RAW_OBJ_FILES) $(LIBFT_FLAGS) -o $(NAME)
+	@gcc $(RAW_OBJ_FILES) $(RAW_OBJ_FILES_COMMON) $(LIBFT_FLAGS) -o $(SWAP)
+
+$(CHECKER): $(RAW_OBJ_FILES_CHECKER) $(RAW_OBJ_FILES_COMMON)
+	@make -sC ./libft
+	@gcc $(RAW_OBJ_FILES_CHECKER) $(RAW_OBJ_FILES_COMMON) $(LIBFT_FLAGS) -o $(CHECKER)
 
 #### К о м п и л я ц и я ####
 
 $(OBJ_DIR)/%.o: $(SRC_SWAP_DIR)/%.c $(INCL_DIR)/*.h
+	@gcc $(CFLAGS) -I $(INCL_DIR) -I ./libft -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_CHECKER_DIR)/%.c $(INCL_DIR)/*.h
+	@gcc $(CFLAGS) -I $(INCL_DIR) -I ./libft -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_COMMONS_DIR)/%.c $(INCL_DIR)/*.h
 	@gcc $(CFLAGS) -I $(INCL_DIR) -I ./libft -c $< -o $@
 
 clean:
