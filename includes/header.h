@@ -147,5 +147,8 @@ void		prepare_a(t_stack *a, t_stack *b);
 */
 
 void		get_from_b(t_stack *a, t_stack *b);
+void	exec(t_command cmd, t_stack *stack);
+void	exec_2(t_command cmd, t_stack *a, t_stack *b);
+
 
 #endif

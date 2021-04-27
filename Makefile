@@ -14,15 +14,15 @@ SRC_CHECKER_DIR = ./src/checker
 INCL_DIR = ./includes
 
 C_FILES = main.c \
-            parse_nums.c validate_arg.c \
-            commands_1.c commands_2.c \
-            commands_3.c commands_4.c \
             algorithm.c markup.c \
             check_sort.c prepare_a.c get_from_b.c \
-            choose_element.c iter.c choose_element_count.c \
-            iter_b.c find_max_len.c
+            choose_element.c choose_element_count.c \
+            find_max_len.c execute_command.c
 
-C_COMMON_FILES = error.c
+C_COMMON_FILES = error.c parse_nums.c validate_arg.c \
+                 iter.c iter_b.c \
+                 commands_1.c commands_2.c \
+                 commands_3.c commands_4.c \
 
 C_CHECKER_FILES = checker.c
 
@@ -31,7 +31,7 @@ OBJ_FILES_COMMON = $(C_COMMON_FILES:.c=.o)
 OBJ_FILES_CHECKER = $(C_CHECKER_FILES:.c=.o)
 RAW_OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
 RAW_OBJ_FILES_COMMON = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES_COMMON))
-RAW_OBJ_FILES_CHECKER += $(addprefix $(OBJ_DIR)/,$(OBJ_FILES_CHECKER))
+RAW_OBJ_FILES_CHECKER = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES_CHECKER))
 LIBFT_FLAGS = -L libft/ -lft
 NOT_EXIST	= tfbil
 

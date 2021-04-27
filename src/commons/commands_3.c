@@ -59,18 +59,15 @@ void	rrb_void(t_stack *rotate)
 void	rra(t_stack *rotate)
 {
 	rra_void(rotate);
-	ft_putendl("rra");
 }
 
 void	rrb(t_stack *rotate)
 {
 	rrb_void(rotate);
-	ft_putendl("rrb");
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	rra_void(a);
 	rrb_void(b);
-	ft_putendl("rrr");
 }

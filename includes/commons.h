@@ -13,6 +13,15 @@ typedef char			t_bool;
 #define FALSE	0
 #define MAX_INT		    0xFFFFFFFF
 
+struct s_stack;
+
 void	error_manager(char *msg);
+
+typedef struct			s_command
+{
+	void				(*execute)(struct s_stack *);
+	void				(*execute_2)(struct s_stack *, struct s_stack *);
+	char				*msg;
+}						t_command;
 
 #endif //PUSH_SWAP_COMMONS_H
