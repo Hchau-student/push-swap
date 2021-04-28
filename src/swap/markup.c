@@ -88,23 +88,22 @@ void	indexing(t_stack *a)
 	unsigned int		i;
 	unsigned int		j;
 	t_node				*tmp;
-	t_iter				*iter;
+	t_node				*tmp2;
 
 	i = 0;
-	iter = new_iter(a);
 	tmp = a->begin;
 	while (i < a->size)
 	{
 		j = 0;
-		while (j < a->size - 1)
+		tmp2 = tmp;
+		while (j < a->size)
 		{
-			if (tmp->val > iter->cur->next->val)
+			if (tmp->val > tmp2->val)
 				tmp->index++;
 			j++;
-			iter->next_iter(iter);
+			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
 		i++;
 	}
-	destroy_iter(&iter);
 }

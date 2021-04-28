@@ -52,18 +52,26 @@ int	has_false(t_stack *a)
 
 void	prepare_a(t_stack *a, t_stack *b)
 {
+	if (a->size <= 3)
+	{
+		if (a->begin->index > a->begin->next->index)
+			exec(command(SA), a);
+		return ;
+	}
 	while (has_false(a))
 	{
 		markup_greater(a);
 		find_markup_head(a);
 		if (needs_to_swap(a))
 		{
-			sa(a);
+			exec(command(SA), a);
 			markup_greater(a);
 		}
 		else if (a->begin->markup_greater == FALSE)
-			pb(a, b);
+			exec_2(command(PB), a, b);
+		else if (a->begin->val > a->begin->next->val)
+			exec(command(RA), a);
 		else
-			ra(a);
+			exec(command(RRA), a);
 	}
 }

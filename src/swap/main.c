@@ -19,6 +19,8 @@ void	check_res(t_stack *a)
 	while (i < a->size)
 	{
 		ft_putnbr(iter->cur->val);
+//		ft_putstr(" index = ");
+//		ft_putnbr(iter->cur->index);
 		ft_putstr(" ");
 		iter->next_iter(iter);
 		i++;

@@ -2,14 +2,14 @@
 
 void	get_a_sorted(t_stack *a)
 {
-	void		(*rotate_a)(t_stack *);
+	t_command		rotate_a;
 
 	if (a->begin->index <= a->size / 2)
-		rotate_a = &rra;
+		rotate_a = command(RRA);
 	else
-		rotate_a = &ra;
-	while (a->begin->val > a->end->val)
-		rotate_a(a);
+		rotate_a = command(RA);
+	while (a->begin->index != 0)
+		exec(rotate_a, a);
 }
 
 void	main_cycle(t_stack *a, t_stack *b)

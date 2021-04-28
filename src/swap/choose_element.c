@@ -1,21 +1,21 @@
 #include "header.h"
 
 void	perform_single_command(unsigned int count, t_stack *stack,
-								void (*f)(t_stack *))
+							   t_command command)
 {
 	while (count)
 	{
-		f(stack);
+		exec(command, stack);
 		count--;
 	}
 }
 
 void	perform_both_commands(unsigned int count, t_stack *a, t_stack *b,
-								void (*f)(t_stack *, t_stack *))
+								t_command command)
 {
 	while (count)
 	{
-		f(a, b);
+		exec_2(command, a, b);
 		count--;
 	}
 }
@@ -82,10 +82,11 @@ void	choose_element(t_stack *a, t_stack *b)
 	lst = find_list(a, b);
 	count_commands_a(&ra_count, &rra_count, a, lst);
 	count_commands_b(&rb_count, &rrb_count, b, lst);
-	perform_both_commands(both_commands(&ra_count, &rb_count), a, b, &rr);
-	perform_both_commands(both_commands(&rra_count, &rrb_count), a, b, &rrr);
-	perform_single_command(ra_count, a, &ra);
-	perform_single_command(rra_count, a, &rra);
-	perform_single_command(rb_count, b, &rb);
-	perform_single_command(rrb_count, b, &rrb);
+
+	perform_both_commands(both_commands(&ra_count, &rb_count), a, b, command(RR));
+	perform_both_commands(both_commands(&rra_count, &rrb_count), a, b, command(RRR));
+	perform_single_command(ra_count, a, command(RA));
+	perform_single_command(rra_count, a, command(RRA));
+	perform_single_command(rb_count, b, command(RB));
+	perform_single_command(rrb_count, b, command(RRB));
 }

@@ -38,7 +38,6 @@ static void	ra_void(t_stack *rotate)
 void	ra(t_stack *a)
 {
 	ra_void(a);
-	ft_putendl("ra");
 }
 
 void	rb_void(t_stack *rotate)

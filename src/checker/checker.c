@@ -6,7 +6,7 @@
 
 int     main(int ac, char **av)
 {
-	int		i;
+//	int		i;
 
 	if (ac <= 1 || av == NULL)
 		error_manager("Too few arguments: expected 1 at least");

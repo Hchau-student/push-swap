@@ -23,6 +23,7 @@ C_COMMON_FILES = error.c parse_nums.c validate_arg.c \
                  iter.c iter_b.c \
                  commands_1.c commands_2.c \
                  commands_3.c commands_4.c \
+                 command.c
 
 C_CHECKER_FILES = checker.c
 

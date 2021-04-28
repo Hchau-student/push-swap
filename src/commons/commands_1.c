@@ -14,11 +14,23 @@
 
 static void	swap_val(t_node *a, t_node *b)
 {
-	t_val	tmp;
+	t_val				tmp;
+	unsigned int		tmp_index;
+	char				tmp_markup_greater;
+	char				tmp_markup_index;
 
 	tmp = a->val;
 	a->val = b->val;
 	b->val = tmp;
+	tmp_index = a->index;
+	a->index = b->index;
+	b->index = tmp_index;
+	tmp_markup_greater = a->markup_greater;
+	a->markup_greater = b->markup_greater;
+	a->markup_greater = tmp_markup_greater;
+	tmp_markup_index = a->markup_index;
+	a->markup_index = b->markup_index;
+	a->markup_index = tmp_markup_index;
 }
 
 void	sa(t_stack *a)
