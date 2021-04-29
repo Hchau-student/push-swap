@@ -27,9 +27,9 @@ int	sorted(t_stack *a, int (*compare)(t_node *, t_node *))
 	i = 0;
 	iter = new_iter(a);
 	res = TRUE;
-	while (i < a->size)
+	while (i < a->size - 1)
 	{
-		if (!compare(iter->cur, iter->cur->next))
+		if (compare(iter->cur, iter->cur->next) == FALSE)
 			res = FALSE;
 		i++;
 		iter->next_iter(iter);

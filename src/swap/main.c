@@ -9,7 +9,7 @@ static void	init_stack(t_stack *init, t_node *(*next_iter)(t_iter *),
 	init->prev_iter = prev_iter;
 }
 
-void	check_res(t_stack *a)
+static void	check_res(t_stack *a)
 {
 	unsigned int		i;
 	t_iter				*iter;

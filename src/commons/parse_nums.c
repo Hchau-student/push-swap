@@ -14,33 +14,33 @@ int	fill_curr_node(t_node **node, int content)
 	}
 	else
 	{
-		(*node)->prev = ft_memalloc(sizeof(t_node));
-		(*node)->prev->next = *node;
-		(*node) = (*node)->prev;
-		(*node)->prev = NULL;
+		(*node)->next = ft_memalloc(sizeof(t_node));
+		(*node)->next->prev = *node;
+		(*node) = (*node)->next;
+		(*node)->next = NULL;
 	}
 	(*node)->val = content;
 	(*node)->index = 0;
 	return (0);
 }
 
-int	end_list(t_stack *stack, t_node *end, int res)
+int	end_list(t_stack *stack, t_node *begin, int res)
 {
 	if (stack->size == 0)
 		return (res);
-	stack->begin->prev = end;
-	end->next = stack->begin;
-	stack->end = end;
+	stack->end->next = begin;
+	begin->prev = stack->end;
+	stack->begin = begin;
 	return (res);
 }
 
 int	get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
 {
-	fill_curr_node(&a->begin, ft_atoi(arg));
+	fill_curr_node(&a->end, ft_atoi(arg));
 	if (*tmp == NULL)
-		*tmp = a->begin;
+		*tmp = a->end;
 	a->size++;
-	if (check_match((int *)nums_table, a->begin, a->size))
+	if (check_match((int *)nums_table, a->end, a->size))
 		return (end_list(a, *tmp, 1));
 	return (0);
 }
@@ -54,7 +54,7 @@ int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 	if (a->size == 0)
 		tmp = NULL;
 	else if (tmp == NULL)
-		tmp = a->begin;
+		tmp = a->end;
 	while (strings[i] != NULL)
 	{
 		if (arg_is_num(strings[i]))
@@ -79,7 +79,7 @@ int	parse_nums(t_stack *a, t_program *program, int ac, char **av)
 
 	i = 1;
 	ft_bzero(nums_table, sizeof(int) * TBL_SZ);
-	a->begin = NULL;
+	a->end = NULL;
 	a->size = 0;
 	while (i < ac)
 	{
