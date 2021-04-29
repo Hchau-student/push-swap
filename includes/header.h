@@ -55,6 +55,7 @@ int				parse_nums(t_stack *a, t_program *program, int ac, char **av);
 int				arg_is_num(char *s);
 int				arg_is_flag(char *flag);
 int				check_match(int *nums_table, t_node *nodes, int size);
+int				arg_is_command(char *arg);
 
 /*
 **			commands_1
@@ -149,6 +150,5 @@ void		prepare_a(t_stack *a, t_stack *b);
 void		get_from_b(t_stack *a, t_stack *b);
 void	exec(t_command cmd, t_stack *stack);
 void	exec_2(t_command cmd, t_stack *a, t_stack *b);
-
 
 #endif

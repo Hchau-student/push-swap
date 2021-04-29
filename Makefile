@@ -25,7 +25,7 @@ C_COMMON_FILES = error.c parse_nums.c validate_arg.c \
                  commands_3.c commands_4.c \
                  command.c
 
-C_CHECKER_FILES = checker.c
+C_CHECKER_FILES = checker.c parse_commands.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 OBJ_FILES_COMMON = $(C_COMMON_FILES:.c=.o)

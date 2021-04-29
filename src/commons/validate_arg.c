@@ -27,12 +27,10 @@ int	arg_is_num(char *s)
 int	arg_is_flag(char *flag)
 {
 	if (*flag != '-')
-		return (1);
+		return (FALSE);
 	if (flag[1] != 'v')
-		return (1);
-	if (flag[2] != '\0' || !(ft_is_whitespace(flag[2])))
-		return (1);
-	return (0);
+		return (FALSE);
+	return (TRUE);
 }
 
 int	check_match(int *nums_table, t_node *nodes, int size)
@@ -47,7 +45,7 @@ int	check_match(int *nums_table, t_node *nodes, int size)
 		cur_inx = -1;
 	else
 		cur_inx = nodes->val;
-	nodes = nodes->next;
+	nodes = nodes->prev;
 	if (((nums_table[cur_inx % TBL_SZ]) & (1 << (cur_inx % sizeof(int)))) != 0)
 	{
 		while (size)
@@ -56,10 +54,29 @@ int	check_match(int *nums_table, t_node *nodes, int size)
 			ft_putstr(" ");
 			if (nodes->val == val)
 				return (1);
-			nodes = nodes->next;
+			nodes = nodes->prev;
 			size--;
 		}
 	}
 	nums_table[cur_inx % TBL_SZ] |= (1 << (cur_inx % sizeof(int)));
 	return (0);
+}
+
+int	arg_is_command(char *arg)
+{
+	int		res;
+
+	res = FALSE;
+	res |= (ft_strequ(arg, "sa"));
+	res |= (ft_strequ(arg, "sb"));
+	res |= (ft_strequ(arg, "ss"));
+	res |= (ft_strequ(arg, "pa"));
+	res |= (ft_strequ(arg, "pb"));
+	res |= (ft_strequ(arg, "ra"));
+	res |= (ft_strequ(arg, "rb"));
+	res |= (ft_strequ(arg, "rr"));
+	res |= (ft_strequ(arg, "rra"));
+	res |= (ft_strequ(arg, "rrb"));
+	res |= (ft_strequ(arg, "rrr"));
+	return (res == 1);
 }

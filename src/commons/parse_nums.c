@@ -1,7 +1,3 @@
-//
-// Created by Hugor Chau on 3/9/21.
-//
-
 #include "header.h"
 
 int	fill_curr_node(t_node **node, int content)
@@ -65,7 +61,7 @@ int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 		else if (arg_is_flag(strings[i]))
 			program->visualize = 1;
 		else
-			return (end_list(a, tmp, 1));
+			return (1);
 		i++;
 	}
 	return (end_list(a, tmp, 0));
