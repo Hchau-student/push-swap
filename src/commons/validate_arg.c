@@ -80,3 +80,21 @@ int	arg_is_command(char *arg)
 	res |= (ft_strequ(arg, "rrr"));
 	return (res == 1);
 }
+
+int	get_command(char *arg)
+{
+	int				i;
+	static char		*commands[COMMAND_NUM] = {
+			"sa", "sb", "ss", "pa", "pb",
+			"ra", "rb", "rr", "rra", "rrb", "rrr"
+	};
+
+	i = 0;
+	while (i < COMMAND_NUM)
+	{
+		if (ft_strequ(arg, commands[i]))
+			break;
+		i++;
+	}
+	return (i);
+}
