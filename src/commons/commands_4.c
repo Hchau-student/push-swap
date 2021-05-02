@@ -14,7 +14,7 @@ rr : ra and rb at the same time.
 
 #include "header.h"
 
-static void	ra_void(t_stack *rotate)
+void	ra(t_stack *rotate)
 {
 	t_node		*tmp;
 	t_node		*new_begin;
@@ -35,12 +35,7 @@ static void	ra_void(t_stack *rotate)
 	rotate->end = tmp;
 }
 
-void	ra(t_stack *a)
-{
-	ra_void(a);
-}
-
-void	rb_void(t_stack *rotate)
+void	rb(t_stack *rotate)
 {
 	t_node		*tmp;
 	t_node		*new_begin;
@@ -61,13 +56,8 @@ void	rb_void(t_stack *rotate)
 	rotate->end = tmp;
 }
 
-void	rb(t_stack *b)
-{
-	ra_void(b);
-}
-
 void	rr(t_stack *a, t_stack *b)
 {
-	ra_void(a);
-	rb_void(b);
+	ra(a);
+	rb(b);
 }

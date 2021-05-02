@@ -31,10 +31,14 @@ int	main(int ac, char **av)
 	t_stack		b;
 	t_program	program;
 
+	if (ac <= 1)
+		return (0);
 	init_stack(&a, &next_iter_a, &prev_iter_a);
 	init_stack(&b, &next_iter_b, &prev_iter_b);
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");
+	if (a.size == 0)
+		error_manager("ERROR");
 	b.size = 0;
 	b.begin = a.end;
 	b.end = b.begin;

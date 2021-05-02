@@ -27,32 +27,32 @@ static void	swap_val(t_node *a, t_node *b)
 	b->index = tmp_index;
 	tmp_markup_greater = a->markup_greater;
 	a->markup_greater = b->markup_greater;
-	a->markup_greater = tmp_markup_greater;
+	b->markup_greater = tmp_markup_greater;
 	tmp_markup_index = a->markup_index;
 	a->markup_index = b->markup_index;
-	a->markup_index = tmp_markup_index;
+	b->markup_index = tmp_markup_index;
 }
 
 void	sa(t_stack *a)
 {
 	if (a->size <= 1)
 		return ;
-	if (a->begin == NULL || a->begin->next == NULL)
+	if (a->begin == NULL || a->begin->prev == NULL)
 		return ;
-	swap_val(a->begin, a->begin->next);
+	swap_val(a->begin, a->begin->prev);
 }
 
 void	sb(t_stack *b)
 {
 	if (b->size <= 1)
 		return ;
-	if (b->begin == NULL || b->begin->next == NULL)
+	if (b->begin == NULL || b->begin->prev == NULL)
 		return ;
-	swap_val(b->begin, b->begin->next);
+	swap_val(b->begin, b->begin->prev);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
-	sa(b);
+	sb(b);
 }

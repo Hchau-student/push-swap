@@ -50,10 +50,8 @@ int	check_match(int *nums_table, t_node *nodes, int size)
 	{
 		while (size)
 		{
-			ft_putnbr(nodes->val);
-			ft_putstr(" ");
 			if (nodes->val == val)
-				return (1);
+				error_manager("Error");
 			nodes = nodes->prev;
 			size--;
 		}

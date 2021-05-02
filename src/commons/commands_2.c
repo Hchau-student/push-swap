@@ -18,8 +18,6 @@ void	pa(t_stack *a, t_stack *b)
 {
 	if (b->size == 0)
 		return ;
-	b->size--;
-	a->size++;
 	if (a->size == 0)
 	{
 		a->begin = b->begin;
@@ -29,6 +27,8 @@ void	pa(t_stack *a, t_stack *b)
 	{
 		a->begin = b->begin;
 	}
+	b->size--;
+	a->size++;
 	b->begin = b->begin->prev;
 }
 

@@ -14,8 +14,8 @@ SRC_CHECKER_DIR = ./src/checker
 INCL_DIR = ./includes
 
 C_FILES = main.c \
-            algorithm.c markup.c \
-            check_sort.c prepare_a.c get_from_b.c \
+            algorithm.c\
+            prepare_a.c get_from_b.c \
             choose_element.c choose_element_count.c \
             find_max_len.c execute_command.c
 
@@ -23,9 +23,10 @@ C_COMMON_FILES = error.c parse_nums.c validate_arg.c \
                  iter.c iter_b.c \
                  commands_1.c commands_2.c \
                  commands_3.c commands_4.c \
-                 command.c
+                 command.c check_sort.c \
+                 markup.c
 
-C_CHECKER_FILES = checker.c parse_commands.c
+C_CHECKER_FILES = checker.c parse_commands.c exec.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 OBJ_FILES_COMMON = $(C_COMMON_FILES:.c=.o)
