@@ -310,7 +310,22 @@
 		<Unit filename="/Users/hchau/push-swap/libft/ft_twlstnew.c">
 			<Option target="push_swap1"/>
 		</Unit>
+		<Unit filename="/Users/hchau/push-swap/libft/get_next_line.c">
+			<Option target="push_swap1"/>
+		</Unit>
+		<Unit filename="/Users/hchau/push-swap/libft/get_next_line.h">
+			<Option target="push_swap1"/>
+		</Unit>
 		<Unit filename="/Users/hchau/push-swap/libft/libft.h">
+			<Option target="push_swap1"/>
+		</Unit>
+		<Unit filename="/Users/hchau/push-swap/src/checker/checker.c">
+			<Option target="push_swap1"/>
+		</Unit>
+		<Unit filename="/Users/hchau/push-swap/src/checker/exec.c">
+			<Option target="push_swap1"/>
+		</Unit>
+		<Unit filename="/Users/hchau/push-swap/src/checker/parse_commands.c">
 			<Option target="push_swap1"/>
 		</Unit>
 		<Unit filename="/Users/hchau/push-swap/src/commons/check_sort.c">
@@ -334,43 +349,19 @@
 		<Unit filename="/Users/hchau/push-swap/src/commons/error.c">
 			<Option target="push_swap1"/>
 		</Unit>
+		<Unit filename="/Users/hchau/push-swap/src/commons/iter.c">
+			<Option target="push_swap1"/>
+		</Unit>
+		<Unit filename="/Users/hchau/push-swap/src/commons/iter_b.c">
+			<Option target="push_swap1"/>
+		</Unit>
 		<Unit filename="/Users/hchau/push-swap/src/commons/markup.c">
 			<Option target="push_swap1"/>
 		</Unit>
 		<Unit filename="/Users/hchau/push-swap/src/commons/parse_nums.c">
 			<Option target="push_swap1"/>
 		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/commons/prepare_a.c">
-			<Option target="push_swap1"/>
-		</Unit>
 		<Unit filename="/Users/hchau/push-swap/src/commons/validate_arg.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/algorithm.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/choose_element.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/choose_element_count.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/execute_command.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/find_max_len.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/get_from_b.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/iter.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/iter_b.c">
-			<Option target="push_swap1"/>
-		</Unit>
-		<Unit filename="/Users/hchau/push-swap/src/swap/main.c">
 			<Option target="push_swap1"/>
 		</Unit>
 		<Unit filename="/Users/hchau/push-swap/CMakeLists.txt">

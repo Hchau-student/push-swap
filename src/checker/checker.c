@@ -63,11 +63,13 @@ int     main(int ac, char **av)
 	init_stack(&a, &next_iter_a, &prev_iter_a);
 	init_stack(&b, &next_iter_b, &prev_iter_b);
 	program.commands = NULL;
-	if (ac <= 1)
-		return (0);
-	if (parse_nums(&a, &program, ac, av) && parse_commands(ac, av, &program))
+//	if (ac <= 1)
+//		return (0);
+	if (parse_nums(&a, &program, ac, av))
 		error_manager("Error");
-
+    parse_commands(ac, av, &program);
+//	if (program.commands == NULL)
+//        return (0);
 	if (a.size == 0)
 		error_manager("ERROR");
 	//2) parse commands and put them into list

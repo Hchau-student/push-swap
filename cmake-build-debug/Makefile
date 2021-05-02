@@ -2113,6 +2113,114 @@ libft/ft_twlstnew.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/libft/ft_twlstnew.c.s
 .PHONY : libft/ft_twlstnew.c.s
 
+libft/get_next_line.o: libft/get_next_line.c.o
+
+.PHONY : libft/get_next_line.o
+
+# target to build an object file
+libft/get_next_line.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/libft/get_next_line.c.o
+.PHONY : libft/get_next_line.c.o
+
+libft/get_next_line.i: libft/get_next_line.c.i
+
+.PHONY : libft/get_next_line.i
+
+# target to preprocess a source file
+libft/get_next_line.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/libft/get_next_line.c.i
+.PHONY : libft/get_next_line.c.i
+
+libft/get_next_line.s: libft/get_next_line.c.s
+
+.PHONY : libft/get_next_line.s
+
+# target to generate assembly for a file
+libft/get_next_line.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/libft/get_next_line.c.s
+.PHONY : libft/get_next_line.c.s
+
+src/checker/checker.o: src/checker/checker.c.o
+
+.PHONY : src/checker/checker.o
+
+# target to build an object file
+src/checker/checker.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/checker.c.o
+.PHONY : src/checker/checker.c.o
+
+src/checker/checker.i: src/checker/checker.c.i
+
+.PHONY : src/checker/checker.i
+
+# target to preprocess a source file
+src/checker/checker.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/checker.c.i
+.PHONY : src/checker/checker.c.i
+
+src/checker/checker.s: src/checker/checker.c.s
+
+.PHONY : src/checker/checker.s
+
+# target to generate assembly for a file
+src/checker/checker.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/checker.c.s
+.PHONY : src/checker/checker.c.s
+
+src/checker/exec.o: src/checker/exec.c.o
+
+.PHONY : src/checker/exec.o
+
+# target to build an object file
+src/checker/exec.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/exec.c.o
+.PHONY : src/checker/exec.c.o
+
+src/checker/exec.i: src/checker/exec.c.i
+
+.PHONY : src/checker/exec.i
+
+# target to preprocess a source file
+src/checker/exec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/exec.c.i
+.PHONY : src/checker/exec.c.i
+
+src/checker/exec.s: src/checker/exec.c.s
+
+.PHONY : src/checker/exec.s
+
+# target to generate assembly for a file
+src/checker/exec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/exec.c.s
+.PHONY : src/checker/exec.c.s
+
+src/checker/parse_commands.o: src/checker/parse_commands.c.o
+
+.PHONY : src/checker/parse_commands.o
+
+# target to build an object file
+src/checker/parse_commands.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/parse_commands.c.o
+.PHONY : src/checker/parse_commands.c.o
+
+src/checker/parse_commands.i: src/checker/parse_commands.c.i
+
+.PHONY : src/checker/parse_commands.i
+
+# target to preprocess a source file
+src/checker/parse_commands.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/parse_commands.c.i
+.PHONY : src/checker/parse_commands.c.i
+
+src/checker/parse_commands.s: src/checker/parse_commands.c.s
+
+.PHONY : src/checker/parse_commands.s
+
+# target to generate assembly for a file
+src/checker/parse_commands.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/checker/parse_commands.c.s
+.PHONY : src/checker/parse_commands.c.s
+
 src/commons/check_sort.o: src/commons/check_sort.c.o
 
 .PHONY : src/commons/check_sort.o
@@ -2302,6 +2410,60 @@ src/commons/error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/error.c.s
 .PHONY : src/commons/error.c.s
 
+src/commons/iter.o: src/commons/iter.c.o
+
+.PHONY : src/commons/iter.o
+
+# target to build an object file
+src/commons/iter.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter.c.o
+.PHONY : src/commons/iter.c.o
+
+src/commons/iter.i: src/commons/iter.c.i
+
+.PHONY : src/commons/iter.i
+
+# target to preprocess a source file
+src/commons/iter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter.c.i
+.PHONY : src/commons/iter.c.i
+
+src/commons/iter.s: src/commons/iter.c.s
+
+.PHONY : src/commons/iter.s
+
+# target to generate assembly for a file
+src/commons/iter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter.c.s
+.PHONY : src/commons/iter.c.s
+
+src/commons/iter_b.o: src/commons/iter_b.c.o
+
+.PHONY : src/commons/iter_b.o
+
+# target to build an object file
+src/commons/iter_b.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter_b.c.o
+.PHONY : src/commons/iter_b.c.o
+
+src/commons/iter_b.i: src/commons/iter_b.c.i
+
+.PHONY : src/commons/iter_b.i
+
+# target to preprocess a source file
+src/commons/iter_b.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter_b.c.i
+.PHONY : src/commons/iter_b.c.i
+
+src/commons/iter_b.s: src/commons/iter_b.c.s
+
+.PHONY : src/commons/iter_b.s
+
+# target to generate assembly for a file
+src/commons/iter_b.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/iter_b.c.s
+.PHONY : src/commons/iter_b.c.s
+
 src/commons/markup.o: src/commons/markup.c.o
 
 .PHONY : src/commons/markup.o
@@ -2356,33 +2518,6 @@ src/commons/parse_nums.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/parse_nums.c.s
 .PHONY : src/commons/parse_nums.c.s
 
-src/commons/prepare_a.o: src/commons/prepare_a.c.o
-
-.PHONY : src/commons/prepare_a.o
-
-# target to build an object file
-src/commons/prepare_a.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/prepare_a.c.o
-.PHONY : src/commons/prepare_a.c.o
-
-src/commons/prepare_a.i: src/commons/prepare_a.c.i
-
-.PHONY : src/commons/prepare_a.i
-
-# target to preprocess a source file
-src/commons/prepare_a.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/prepare_a.c.i
-.PHONY : src/commons/prepare_a.c.i
-
-src/commons/prepare_a.s: src/commons/prepare_a.c.s
-
-.PHONY : src/commons/prepare_a.s
-
-# target to generate assembly for a file
-src/commons/prepare_a.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/prepare_a.c.s
-.PHONY : src/commons/prepare_a.c.s
-
 src/commons/validate_arg.o: src/commons/validate_arg.c.o
 
 .PHONY : src/commons/validate_arg.o
@@ -2409,249 +2544,6 @@ src/commons/validate_arg.s: src/commons/validate_arg.c.s
 src/commons/validate_arg.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/commons/validate_arg.c.s
 .PHONY : src/commons/validate_arg.c.s
-
-src/swap/algorithm.o: src/swap/algorithm.c.o
-
-.PHONY : src/swap/algorithm.o
-
-# target to build an object file
-src/swap/algorithm.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/algorithm.c.o
-.PHONY : src/swap/algorithm.c.o
-
-src/swap/algorithm.i: src/swap/algorithm.c.i
-
-.PHONY : src/swap/algorithm.i
-
-# target to preprocess a source file
-src/swap/algorithm.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/algorithm.c.i
-.PHONY : src/swap/algorithm.c.i
-
-src/swap/algorithm.s: src/swap/algorithm.c.s
-
-.PHONY : src/swap/algorithm.s
-
-# target to generate assembly for a file
-src/swap/algorithm.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/algorithm.c.s
-.PHONY : src/swap/algorithm.c.s
-
-src/swap/choose_element.o: src/swap/choose_element.c.o
-
-.PHONY : src/swap/choose_element.o
-
-# target to build an object file
-src/swap/choose_element.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element.c.o
-.PHONY : src/swap/choose_element.c.o
-
-src/swap/choose_element.i: src/swap/choose_element.c.i
-
-.PHONY : src/swap/choose_element.i
-
-# target to preprocess a source file
-src/swap/choose_element.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element.c.i
-.PHONY : src/swap/choose_element.c.i
-
-src/swap/choose_element.s: src/swap/choose_element.c.s
-
-.PHONY : src/swap/choose_element.s
-
-# target to generate assembly for a file
-src/swap/choose_element.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element.c.s
-.PHONY : src/swap/choose_element.c.s
-
-src/swap/choose_element_count.o: src/swap/choose_element_count.c.o
-
-.PHONY : src/swap/choose_element_count.o
-
-# target to build an object file
-src/swap/choose_element_count.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element_count.c.o
-.PHONY : src/swap/choose_element_count.c.o
-
-src/swap/choose_element_count.i: src/swap/choose_element_count.c.i
-
-.PHONY : src/swap/choose_element_count.i
-
-# target to preprocess a source file
-src/swap/choose_element_count.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element_count.c.i
-.PHONY : src/swap/choose_element_count.c.i
-
-src/swap/choose_element_count.s: src/swap/choose_element_count.c.s
-
-.PHONY : src/swap/choose_element_count.s
-
-# target to generate assembly for a file
-src/swap/choose_element_count.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/choose_element_count.c.s
-.PHONY : src/swap/choose_element_count.c.s
-
-src/swap/execute_command.o: src/swap/execute_command.c.o
-
-.PHONY : src/swap/execute_command.o
-
-# target to build an object file
-src/swap/execute_command.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/execute_command.c.o
-.PHONY : src/swap/execute_command.c.o
-
-src/swap/execute_command.i: src/swap/execute_command.c.i
-
-.PHONY : src/swap/execute_command.i
-
-# target to preprocess a source file
-src/swap/execute_command.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/execute_command.c.i
-.PHONY : src/swap/execute_command.c.i
-
-src/swap/execute_command.s: src/swap/execute_command.c.s
-
-.PHONY : src/swap/execute_command.s
-
-# target to generate assembly for a file
-src/swap/execute_command.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/execute_command.c.s
-.PHONY : src/swap/execute_command.c.s
-
-src/swap/find_max_len.o: src/swap/find_max_len.c.o
-
-.PHONY : src/swap/find_max_len.o
-
-# target to build an object file
-src/swap/find_max_len.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/find_max_len.c.o
-.PHONY : src/swap/find_max_len.c.o
-
-src/swap/find_max_len.i: src/swap/find_max_len.c.i
-
-.PHONY : src/swap/find_max_len.i
-
-# target to preprocess a source file
-src/swap/find_max_len.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/find_max_len.c.i
-.PHONY : src/swap/find_max_len.c.i
-
-src/swap/find_max_len.s: src/swap/find_max_len.c.s
-
-.PHONY : src/swap/find_max_len.s
-
-# target to generate assembly for a file
-src/swap/find_max_len.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/find_max_len.c.s
-.PHONY : src/swap/find_max_len.c.s
-
-src/swap/get_from_b.o: src/swap/get_from_b.c.o
-
-.PHONY : src/swap/get_from_b.o
-
-# target to build an object file
-src/swap/get_from_b.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/get_from_b.c.o
-.PHONY : src/swap/get_from_b.c.o
-
-src/swap/get_from_b.i: src/swap/get_from_b.c.i
-
-.PHONY : src/swap/get_from_b.i
-
-# target to preprocess a source file
-src/swap/get_from_b.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/get_from_b.c.i
-.PHONY : src/swap/get_from_b.c.i
-
-src/swap/get_from_b.s: src/swap/get_from_b.c.s
-
-.PHONY : src/swap/get_from_b.s
-
-# target to generate assembly for a file
-src/swap/get_from_b.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/get_from_b.c.s
-.PHONY : src/swap/get_from_b.c.s
-
-src/swap/iter.o: src/swap/iter.c.o
-
-.PHONY : src/swap/iter.o
-
-# target to build an object file
-src/swap/iter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter.c.o
-.PHONY : src/swap/iter.c.o
-
-src/swap/iter.i: src/swap/iter.c.i
-
-.PHONY : src/swap/iter.i
-
-# target to preprocess a source file
-src/swap/iter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter.c.i
-.PHONY : src/swap/iter.c.i
-
-src/swap/iter.s: src/swap/iter.c.s
-
-.PHONY : src/swap/iter.s
-
-# target to generate assembly for a file
-src/swap/iter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter.c.s
-.PHONY : src/swap/iter.c.s
-
-src/swap/iter_b.o: src/swap/iter_b.c.o
-
-.PHONY : src/swap/iter_b.o
-
-# target to build an object file
-src/swap/iter_b.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter_b.c.o
-.PHONY : src/swap/iter_b.c.o
-
-src/swap/iter_b.i: src/swap/iter_b.c.i
-
-.PHONY : src/swap/iter_b.i
-
-# target to preprocess a source file
-src/swap/iter_b.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter_b.c.i
-.PHONY : src/swap/iter_b.c.i
-
-src/swap/iter_b.s: src/swap/iter_b.c.s
-
-.PHONY : src/swap/iter_b.s
-
-# target to generate assembly for a file
-src/swap/iter_b.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/iter_b.c.s
-.PHONY : src/swap/iter_b.c.s
-
-src/swap/main.o: src/swap/main.c.o
-
-.PHONY : src/swap/main.o
-
-# target to build an object file
-src/swap/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/main.c.o
-.PHONY : src/swap/main.c.o
-
-src/swap/main.i: src/swap/main.c.i
-
-.PHONY : src/swap/main.i
-
-# target to preprocess a source file
-src/swap/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/main.c.i
-.PHONY : src/swap/main.c.i
-
-src/swap/main.s: src/swap/main.c.s
-
-.PHONY : src/swap/main.s
-
-# target to generate assembly for a file
-src/swap/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/push_swap1.dir/build.make CMakeFiles/push_swap1.dir/src/swap/main.c.s
-.PHONY : src/swap/main.c.s
 
 # Help Target
 help:
@@ -2881,6 +2773,18 @@ help:
 	@echo "... libft/ft_twlstnew.o"
 	@echo "... libft/ft_twlstnew.i"
 	@echo "... libft/ft_twlstnew.s"
+	@echo "... libft/get_next_line.o"
+	@echo "... libft/get_next_line.i"
+	@echo "... libft/get_next_line.s"
+	@echo "... src/checker/checker.o"
+	@echo "... src/checker/checker.i"
+	@echo "... src/checker/checker.s"
+	@echo "... src/checker/exec.o"
+	@echo "... src/checker/exec.i"
+	@echo "... src/checker/exec.s"
+	@echo "... src/checker/parse_commands.o"
+	@echo "... src/checker/parse_commands.i"
+	@echo "... src/checker/parse_commands.s"
 	@echo "... src/commons/check_sort.o"
 	@echo "... src/commons/check_sort.i"
 	@echo "... src/commons/check_sort.s"
@@ -2902,45 +2806,21 @@ help:
 	@echo "... src/commons/error.o"
 	@echo "... src/commons/error.i"
 	@echo "... src/commons/error.s"
+	@echo "... src/commons/iter.o"
+	@echo "... src/commons/iter.i"
+	@echo "... src/commons/iter.s"
+	@echo "... src/commons/iter_b.o"
+	@echo "... src/commons/iter_b.i"
+	@echo "... src/commons/iter_b.s"
 	@echo "... src/commons/markup.o"
 	@echo "... src/commons/markup.i"
 	@echo "... src/commons/markup.s"
 	@echo "... src/commons/parse_nums.o"
 	@echo "... src/commons/parse_nums.i"
 	@echo "... src/commons/parse_nums.s"
-	@echo "... src/commons/prepare_a.o"
-	@echo "... src/commons/prepare_a.i"
-	@echo "... src/commons/prepare_a.s"
 	@echo "... src/commons/validate_arg.o"
 	@echo "... src/commons/validate_arg.i"
 	@echo "... src/commons/validate_arg.s"
-	@echo "... src/swap/algorithm.o"
-	@echo "... src/swap/algorithm.i"
-	@echo "... src/swap/algorithm.s"
-	@echo "... src/swap/choose_element.o"
-	@echo "... src/swap/choose_element.i"
-	@echo "... src/swap/choose_element.s"
-	@echo "... src/swap/choose_element_count.o"
-	@echo "... src/swap/choose_element_count.i"
-	@echo "... src/swap/choose_element_count.s"
-	@echo "... src/swap/execute_command.o"
-	@echo "... src/swap/execute_command.i"
-	@echo "... src/swap/execute_command.s"
-	@echo "... src/swap/find_max_len.o"
-	@echo "... src/swap/find_max_len.i"
-	@echo "... src/swap/find_max_len.s"
-	@echo "... src/swap/get_from_b.o"
-	@echo "... src/swap/get_from_b.i"
-	@echo "... src/swap/get_from_b.s"
-	@echo "... src/swap/iter.o"
-	@echo "... src/swap/iter.i"
-	@echo "... src/swap/iter.s"
-	@echo "... src/swap/iter_b.o"
-	@echo "... src/swap/iter_b.i"
-	@echo "... src/swap/iter_b.s"
-	@echo "... src/swap/main.o"
-	@echo "... src/swap/main.i"
-	@echo "... src/swap/main.s"
 .PHONY : help
 
 

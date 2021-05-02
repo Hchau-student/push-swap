@@ -15,6 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct		s_list
 {
@@ -108,5 +109,6 @@ void				ft_twlstdel_backw(t_twlist **alltwlist,
 char				*ft_strcpy_return(char *dest, char const *src);
 void				ft_twlstend(t_twlist **alltwlist, t_twlist *new);
 int					ft_is_whitespace(int c);
+int					get_next_line(int fd, char **line);
 
 #endif
