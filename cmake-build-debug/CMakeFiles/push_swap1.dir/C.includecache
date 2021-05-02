@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/commons.h
+libft.h
+../includes/libft.h
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+
+../includes/header.h
+commons.h
+../includes/commons.h
+
+../libft/libft.h
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+/Users/hchau/push-swap/src/swap/algorithm.c
+header.h
+/Users/hchau/push-swap/src/swap/header.h
+
