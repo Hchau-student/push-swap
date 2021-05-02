@@ -82,7 +82,6 @@ void	choose_element(t_stack *a, t_stack *b)
 	lst = find_list(a, b);
 	count_commands_a(&ra_count, &rra_count, a, lst);
 	count_commands_b(&rb_count, &rrb_count, b, lst);
-
 	perform_both_commands(both_commands(&ra_count, &rb_count), a, b, command(RR));
 	perform_both_commands(both_commands(&rra_count, &rrb_count), a, b, command(RRR));
 	perform_single_command(ra_count, a, command(RA));

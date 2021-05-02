@@ -41,6 +41,7 @@ typedef struct s_program
 {
 	int			visualize;
 	t_list		*commands;
+    int         kasino;
 }				t_program;
 
 /*

@@ -41,6 +41,14 @@ int	get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
 	return (0);
 }
 
+void    get_flag(t_program *program, char *string)
+{
+    if (string[1] == 'v')
+        program->visualize = 1;
+    if (string[1] == 'k')
+        program->kasino = 1;
+}
+
 int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 {
 	static t_node		*tmp = NULL;
@@ -59,7 +67,7 @@ int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 				return (end_list(a, tmp, 1));
 		}
 		else if (arg_is_flag(strings[i]))
-			program->visualize = 1;
+		    get_flag(program, strings[i]);
 		else
 			return (1);
 		i++;
@@ -77,6 +85,8 @@ int	parse_nums(t_stack *a, t_program *program, int ac, char **av)
 	ft_bzero(nums_table, sizeof(int) * TBL_SZ);
 	a->end = NULL;
 	a->size = 0;
+	program->visualize = 0;
+	program->kasino = 0;
 	while (i < ac)
 	{
 		args = ft_strsplit(av[i], ' ');

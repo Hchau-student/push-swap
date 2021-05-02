@@ -37,12 +37,13 @@ int	main(int ac, char **av)
 	init_stack(&b, &next_iter_b, &prev_iter_b);
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");
+	if (program.kasino && !sorted(&a, &compare_greater))
+        system("open https://www.youtube.com/watch?v=nThKRtq5D3w &");
 	if (a.size == 0)
 		error_manager("ERROR");
 	b.size = 0;
 	b.begin = a.end;
 	b.end = b.begin;
 	main_cycle(&a, &b);
-	check_res(&a);
 	return (0);
 }

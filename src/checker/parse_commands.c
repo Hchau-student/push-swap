@@ -30,10 +30,10 @@ int	parse_commands(int ac, char **av, t_program *program)
 	program->commands = NULL;
     char *line;
 
-    while (get_next_line(2, &line))
+    while (get_next_line(0, &line))
     {
         if (arg_is_command(line))
-            new_command(&program->commands, line);//put command in list
+            new_command(&program->commands, line);
         else
             error_manager("command is invalid");
     }

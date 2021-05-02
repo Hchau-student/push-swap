@@ -28,7 +28,7 @@ int	arg_is_flag(char *flag)
 {
 	if (*flag != '-')
 		return (FALSE);
-	if (flag[1] != 'v')
+	if (flag[1] != 'v' && flag[1] != 'k')
 		return (FALSE);
 	return (TRUE);
 }
