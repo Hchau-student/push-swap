@@ -39,7 +39,7 @@ void	sa(t_stack *a)
 		return ;
 	if (a->begin == NULL || a->begin->prev == NULL)
 		return ;
-	swap_val(a->begin, a->begin->prev);
+	swap_val(a->begin, a->begin->next);
 }
 
 void	sb(t_stack *b)
