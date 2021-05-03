@@ -3,7 +3,7 @@
 //
 #include "checker.h"
 
-void new_command(t_list **commands, char *str)
+void	new_command(t_list **commands, char *str)
 {
 	t_command	*command_res;
 	t_list		*tmp;
@@ -27,15 +27,15 @@ void new_command(t_list **commands, char *str)
 
 int	parse_commands(int ac, char **av, t_program *program)
 {
-	program->commands = NULL;
-    char *line;
+	char	*line;
 
-    while (get_next_line(0, &line))
-    {
-        if (arg_is_command(line))
-            new_command(&program->commands, line);
-        else
-            error_manager("command is invalid");
-    }
+	program->commands = NULL;
+	while (get_next_line(0, &line))
+	{
+		if (arg_is_command(line))
+			new_command(&program->commands, line);
+		else
+			error_manager("command is invalid");
+	}
 	return (0);
 }

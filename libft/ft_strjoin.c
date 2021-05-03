@@ -25,7 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if ((i + j < i) || (i + j) < j)
 		return (NULL);
 	i = ft_strlen(s1) + ft_strlen(s2);
-	if (!(new = ft_strnew(i + 1)))
+	new = ft_strnew(i + 1);
+	if (!new)
 		return (NULL);
 	i = 0;
 	j = 0;

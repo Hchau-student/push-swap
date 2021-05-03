@@ -18,7 +18,7 @@ char	*ft_strcat(char *dest, char const *src)
 	size_t	b;
 	char	*my_dest;
 
-	my_dest = (char*)dest;
+	my_dest = (char *)dest;
 	a = 0;
 	b = 0;
 	while (my_dest[b])

@@ -1,4 +1,4 @@
-#include "header.h"
+#include "swap.h"
 
 int	fill_curr_node(t_node **node, int content)
 {
@@ -41,14 +41,6 @@ int	get_num(t_stack *a, char *arg, int *nums_table, t_node **tmp)
 	return (0);
 }
 
-void    get_flag(t_program *program, char *string)
-{
-    if (string[1] == 'v')
-        program->visualize = 1;
-    if (string[1] == 'k')
-        program->kasino = 1;
-}
-
 int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 {
 	static t_node		*tmp = NULL;
@@ -67,7 +59,7 @@ int	fill_nodes(t_stack *a, t_program *program, char **strings, int *nums_table)
 				return (end_list(a, tmp, 1));
 		}
 		else if (arg_is_flag(strings[i]))
-		    get_flag(program, strings[i]);
+			get_flag(program, strings[i]);
 		else
 			return (1);
 		i++;

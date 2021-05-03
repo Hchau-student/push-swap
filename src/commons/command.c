@@ -1,21 +1,6 @@
-//
-// Created by Hugor Chau on 4/28/21.
-//
+#include "swap.h"
 
-#include "header.h"
-//	SA,
-//	SB,
-//	SS,
-//	PA,
-//	PB,
-//	RA,
-//	RB,
-//	RR,
-//	RRA,
-//	RRB,
-//	RRR
-
-t_command		command(int which)
+t_command	command(int which)
 {
 	static t_command	commands[COMMAND_NUM] = {
 			(t_command){&sa, NULL, "sa"},
@@ -30,5 +15,6 @@ t_command		command(int which)
 			(t_command){&rrb, NULL, "rrb"},
 			(t_command){NULL, &rrr, "rrr"}
 	};
-	return commands[which];
+
+	return (commands[which]);
 }

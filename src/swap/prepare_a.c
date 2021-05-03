@@ -1,4 +1,4 @@
-#include "header.h"
+#include "swap.h"
 
 void	sa_test(t_node *a, t_node *a_next)
 {
@@ -58,7 +58,8 @@ void	prepare_a(t_stack *a, t_stack *b)
 			exec(command(SA), a);
 		return ;
 	}
-	while (has_false(a) && (sorted(a, &compare_greater) == FALSE) && a->size > 0)
+	while (has_false(a) && (sorted(a, &compare_greater) == FALSE)
+		&& a->size > 0)
 	{
 		markup_greater(a);
 		find_markup_head(a);

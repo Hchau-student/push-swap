@@ -7,7 +7,6 @@ include_directories(libft)
 include_directories(includes)
 
 add_executable(push_swap1
-        includes/header.h
         includes/commons.h
         includes/checker.h
         libft/libft.h

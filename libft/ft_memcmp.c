@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-int		ft_memcmp(void const *s1, void const *s2, size_t n)
+int	ft_memcmp(void const *s1, void const *s2, size_t n)
 {
 	char	*my_s1;
 	char	*my_s2;
 	size_t	a;
 
-	my_s1 = (char*)s1;
-	my_s2 = (char*)s2;
+	my_s1 = (char *)s1;
+	my_s2 = (char *)s2;
 	a = 0;
 	if (n == 0)
 		return (0);

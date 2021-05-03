@@ -1,4 +1,4 @@
-#include "header.h"
+#include "swap.h"
 
 int	arg_is_num(char *s)
 {
@@ -91,7 +91,7 @@ int	get_command(char *arg)
 	while (i < COMMAND_NUM)
 	{
 		if (ft_strequ(arg, commands[i]))
-			break;
+			break ;
 		i++;
 	}
 	return (i);

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_twlist		*ft_twlstmap(t_twlist *twlist, t_twlist *(*f)(t_twlist *elem))
+t_twlist	*ft_twlstmap(t_twlist *twlist, t_twlist *(*f)(t_twlist *elem))
 {
 	t_twlist		*tmp;
 	t_twlist		*new;
@@ -21,15 +21,15 @@ t_twlist		*ft_twlstmap(t_twlist *twlist, t_twlist *(*f)(t_twlist *elem))
 	if (!f || !twlist)
 		return (NULL);
 	tmp = f(twlist);
-	if (!(head = ft_twlstnew(tmp->content, tmp->content_size)))
-		return (NULL);
+	head = ft_twlstnew(tmp->content, tmp->content_size);
 	new = head;
 	head->next = new;
 	twlist = twlist->next;
 	while (twlist)
 	{
 		tmp = f(twlist);
-		if (!(new->next = ft_twlstnew(tmp->content, tmp->content_size)))
+		new->next = ft_twlstnew(tmp->content, tmp->content_size);
+		if (!(new->next))
 		{
 			ft_twlstclr(&twlist);
 			return (NULL);

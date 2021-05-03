@@ -1,7 +1,3 @@
-//
-// Created by Hugor Chau on 4/26/21.
-//
-
 #include "checker.h"
 
 static void	init_stack(t_stack *init, t_node *(*next_iter)(t_iter *),
@@ -41,51 +37,45 @@ int	need_to_exec_b(t_command *command)
 
 void	exec_all(t_program *program, t_stack *a, t_stack *b)
 {
-	while (program->commands)
+	t_list	*tmp;
+
+	tmp = program->commands;
+	while (tmp)
 	{
-		if (need_to_exec_2(program->commands->content))
-			exec_2(*(t_command *)program->commands->content, a, b);
-		else if (need_to_exec_b(program->commands->content))
-			exec(*(t_command *)program->commands->content, b);
+		if (need_to_exec_2(tmp->content))
+			exec_2(*(t_command *)tmp->content, a, b);
+		else if (need_to_exec_b(tmp->content))
+			exec(*(t_command *)tmp->content, b);
 		else
-			exec(*(t_command *)program->commands->content, a);
-		program->commands = program->commands->next;
+			exec(*(t_command *)tmp->content, a);
+		tmp = tmp->next;
 	}
 }
 
-int     main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack			a;
 	t_stack			b;
 	t_program		program;
-	unsigned int	main_size;
 
 	init_stack(&a, &next_iter_a, &prev_iter_a);
 	init_stack(&b, &next_iter_b, &prev_iter_b);
 	program.commands = NULL;
-//	if (ac <= 1)
-//		return (0);
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("Error");
-    parse_commands(ac, av, &program);
-//	if (program.commands == NULL)
-//        return (0);
+	parse_commands(ac, av, &program);
 	if (a.size == 0)
 		error_manager("ERROR");
-	//2) parse commands and put them into list
-	//3) exec commands
-	//4) check if a sorted
 	b.size = 0;
 	b.begin = a.end;
 	b.end = b.begin;
-
-	main_size = a.size;
 	exec_all(&program, &a, &b);
-	indexing(&a);
-	if ((sorted(&a, &compare_greater) == FALSE) || a.size != main_size)
-		ft_putendl("FALSE");
+	if ((sorted(&a, &compare_greater) == FALSE) || b.size != 0)
+	{
+		if (program.kasino)
+			system("open https://www.youtube.com/watch?v=nThKRtq5D3w");
+		ft_putendl("KO");
+	}
 	else
-		ft_putendl("TRUE");
-	//2) отсортировать список при помощи текущих комманд
-	//3)
+		ft_putendl("OK");
 }

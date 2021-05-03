@@ -1,4 +1,4 @@
-#include "header.h"
+#include "swap.h"
 
 void	get_a_sorted(t_stack *a)
 {

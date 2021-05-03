@@ -12,7 +12,7 @@ becomes the first one.
 rrr : rra and rrb at the same time.
 */
 
-#include "header.h"
+#include "swap.h"
 
 void	rra(t_stack *rotate)
 {

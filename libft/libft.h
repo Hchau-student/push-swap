@@ -17,14 +17,14 @@
 # include <unistd.h>
 # include "get_next_line.h"
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		s_twlist
+typedef struct s_twlist
 {
 	void			*content;
 	size_t			content_size;
@@ -105,7 +105,7 @@ void				ft_twlstadd(t_twlist **alst, t_twlist *new);
 void				ft_twlstiter(t_twlist *lst, void (*f)(t_twlist *elem));
 void				ft_twlstclr(t_twlist **alst);
 void				ft_twlstdel_backw(t_twlist **alltwlist,
-												void (*del)(void *, size_t));
+						void (*del)(void *, size_t));
 char				*ft_strcpy_return(char *dest, char const *src);
 void				ft_twlstend(t_twlist **alltwlist, t_twlist *new);
 int					ft_is_whitespace(int c);

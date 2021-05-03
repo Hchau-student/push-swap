@@ -12,6 +12,27 @@
 
 #include "libft.h"
 
+static void	new_norme_costil(size_t *i, int n)
+{
+	if (n < 0)
+		*i = *i + 1;
+}
+
+static void	*new_norme_costil2(char **res, size_t i)
+{
+	*res = ft_strnew(i);
+	return (res);
+}
+
+static void	new_norme_costil3(long *a, char *res)
+{
+	if (*a < 0)
+	{
+		res[0] = '-';
+		*a = *a * -1;
+	}
+}
+
 char	*ft_itoa(int n)
 {
 	char		*res;
@@ -20,19 +41,17 @@ char	*ft_itoa(int n)
 
 	a = n;
 	i = 1;
-	if (n < 0)
+	new_norme_costil(&i, n);
+	while (n != 0 && (i + 1) > 0)
+	{
+		n = n / 10;
 		i++;
-	while ((n = n / 10) != 0 && (i + 1) > 0)
-		i++;
-	if (!(res = ft_strnew(i)))
+	}
+	if (!(new_norme_costil2(&res, i)))
 		return (NULL);
 	if (a == 0)
 		res[0] = '0';
-	if (a < 0)
-	{
-		res[0] = '-';
-		a = a * -1;
-	}
+	new_norme_costil3(&a, res);
 	while (a != 0)
 	{
 		res[--i] = a % 10 + 48;

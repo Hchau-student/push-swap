@@ -12,7 +12,7 @@ the last one.
 rr : ra and rb at the same time.
 */
 
-#include "header.h"
+#include "swap.h"
 
 void	ra(t_stack *rotate)
 {

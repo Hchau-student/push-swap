@@ -1,4 +1,4 @@
-#include <header.h>
+#include <swap.h>
 
 static void	init_stack(t_stack *init, t_node *(*next_iter)(t_iter *),
 						t_node *(*prev_iter)(t_iter *))
@@ -7,22 +7,6 @@ static void	init_stack(t_stack *init, t_node *(*next_iter)(t_iter *),
 	init->size = 0;
 	init->next_iter = next_iter;
 	init->prev_iter = prev_iter;
-}
-
-static void	check_res(t_stack *a)
-{
-	unsigned int		i;
-	t_iter				*iter;
-
-	i = 0;
-	iter = new_iter(a);
-	while (i < a->size)
-	{
-		ft_putnbr(iter->cur->val);
-		ft_putstr(" ");
-		iter->next_iter(iter);
-		i++;
-	}
 }
 
 int	main(int ac, char **av)
@@ -37,8 +21,6 @@ int	main(int ac, char **av)
 	init_stack(&b, &next_iter_b, &prev_iter_b);
 	if (parse_nums(&a, &program, ac, av))
 		error_manager("nums are invalid");
-	if (program.kasino && !sorted(&a, &compare_greater))
-        system("open https://www.youtube.com/watch?v=nThKRtq5D3w &");
 	if (a.size == 0)
 		error_manager("ERROR");
 	b.size = 0;

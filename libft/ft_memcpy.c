@@ -22,10 +22,12 @@ void	*ft_memcpy(void *dest, void const *src, size_t n)
 	my_dest = (char *)dest;
 	my_src = (char *)src;
 	if (my_dest != my_src)
+	{
 		while (a < n)
 		{
 			my_dest[a] = my_src[a];
 			a++;
 		}
+	}
 	return (dest);
 }

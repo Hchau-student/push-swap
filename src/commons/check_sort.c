@@ -2,7 +2,7 @@
 // Created by Hugor Chau on 4/4/21.
 //
 
-#include "header.h"
+#include "swap.h"
 
 int	compare_index(t_node *lhs, t_node *rhs)
 {
@@ -36,4 +36,12 @@ int	sorted(t_stack *a, int (*compare)(t_node *, t_node *))
 	}
 	destroy_iter(&iter);
 	return (res);
+}
+
+void	get_flag(t_program *program, char *string)
+{
+	if (string[1] == 'v')
+		program->visualize = 1;
+	if (string[1] == 'k')
+		program->kasino = 1;
 }

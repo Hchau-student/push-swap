@@ -33,14 +33,15 @@ static size_t	ft_getsize(char const *s, char c)
 	return (size);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	size_t		word;
 	char		**matr;
 
 	if (!s)
 		return (NULL);
-	if (!(matr = (char**)malloc(sizeof(char*) * (ft_getsize(s, c) + 1))))
+	matr = (char **)malloc(sizeof(char *) * (ft_getsize(s, c) + 1));
+	if (!(matr))
 		return (0);
 	word = 0;
 	while (*s)

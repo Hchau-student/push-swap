@@ -12,12 +12,11 @@
 
 #include "libft.h"
 
-t_twlist			*ft_twlstnew(void const *content, size_t content_size)
+t_twlist	*ft_twlstnew(void const *content, size_t content_size)
 {
 	t_twlist		*newlist;
 
-	if (!(newlist = (t_twlist*)malloc(sizeof(t_twlist))))
-		return (NULL);
+	newlist = (t_twlist *)malloc(sizeof(t_twlist));
 	if (content == NULL)
 	{
 		newlist->content_size = 0;
@@ -25,7 +24,8 @@ t_twlist			*ft_twlstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(newlist->content = malloc((sizeof(content)) * (content_size))))
+		newlist->content = malloc((sizeof(content)) * (content_size));
+		if (!(newlist->content))
 		{
 			free(newlist);
 			newlist = NULL;

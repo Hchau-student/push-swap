@@ -12,13 +12,19 @@
 
 #include "get_next_line.h"
 
-static int				read_this(int fd, char **line, char **str_fd)
+static int	new_norme_costil(ssize_t *ret, int fd, char buf[BUFF_SIZE + 1])
+{
+	(*ret = read(fd, buf, BUFF_SIZE));
+	return (*ret);
+}
+
+static int	read_this(int fd, char **line, char **str_fd)
 {
 	ssize_t				ret;
 	char				buf[BUFF_SIZE + 1];
 	char				*to_free;
 
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	while (new_norme_costil(&ret, fd, buf))
 	{
 		buf[ret] = '\0';
 		to_free = *line;
@@ -41,7 +47,7 @@ static int				read_this(int fd, char **line, char **str_fd)
 	return (1);
 }
 
-int						get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char			*str_fd[10000];
 	char				*to_free;
